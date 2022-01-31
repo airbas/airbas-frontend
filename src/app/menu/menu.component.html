@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
         <a class="navbar-brand" href="#">AirBas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -25,12 +25,21 @@
           </ul>
 
           <img *ngIf="isLogged" class="rounded-circle mr-3" style="width: 50px">
-          <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/signup">
+          <button style="margin-right: 10px" id="signup" *ngIf="!isLogged"
+                  class="btn btn-success"
+                  type="submit"
+                  routerLink="/signup">
             <i class="fas fa-sign-in-alt fa-lg"></i> Sign up</button>
-          <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">
-            <i class="fas fa-sign-in-alt fa-lg"></i> LogIn</button>
-            <button *ngIf="isLogged" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logOut()">
-              <i class="fas fa-sign-out-alt fa-lg"></i> Cerrar Sesión</button>
+
+          <button *ngIf="!isLogged"
+                  class="btn btn-success"
+                  type="submit" routerLink="/login">
+            LogIn</button>
+
+            <button *ngIf="isLogged"
+                    class="btn btn-outline-danger my-2 my-sm-0"
+                    type="submit" (click)="logOut()">
+              <i class="fas fa-sign-out-alt fa-lg"></i> Logout</button>
 
         </div>
       </nav>
