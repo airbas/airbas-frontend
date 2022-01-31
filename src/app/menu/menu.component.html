@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
-        <a class="navbar-brand" href="#">Social Login</a>
+        <a class="navbar-brand" href="#">AirBas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -8,11 +8,11 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" routerLink="/">
-                <i class="fas fa-home"></i> Inicio</a>
+                <i class="fas fa-home"></i> HomePage</a>
             </li>
-            <li class="nav-item active" *ngIf="isLogged">
-              <a class="nav-link" routerLink="/lista">
-                <i class="fas fa-list"></i> Lista</a>
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/">
+                <i></i> AboutUs</a>
             </li>
           </ul>
 
@@ -25,9 +25,10 @@
           </ul>
 
           <img *ngIf="isLogged" class="rounded-circle mr-3" style="width: 50px">
-
+          <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/signup">
+            <i class="fas fa-sign-in-alt fa-lg"></i> Sign up</button>
           <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">
-            <i class="fas fa-sign-in-alt fa-lg"></i> Iniciar Sesión</button>
+            <i class="fas fa-sign-in-alt fa-lg"></i> LogIn</button>
             <button *ngIf="isLogged" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logOut()">
               <i class="fas fa-sign-out-alt fa-lg"></i> Cerrar Sesión</button>
 

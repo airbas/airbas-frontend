@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
-import { ProductosComponent } from './productos/productos.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { productoInterceptor } from './interceptors/producto.interceptor';
@@ -27,8 +26,7 @@ import {
     AppComponent,
     LoginComponent,
     MenuComponent,
-    HomeComponent,
-    ProductosComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -57,9 +55,7 @@ import {
           },
         ],
       } as SocialAuthServiceConfig,
-    },
-    productoInterceptor
-  ],
+    }  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
