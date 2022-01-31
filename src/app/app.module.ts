@@ -9,7 +9,6 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { productoInterceptor } from './interceptors/producto.interceptor';
 
 // social login
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
