@@ -19,6 +19,7 @@ import {
 } from 'angularx-social-login';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SocialLoginModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

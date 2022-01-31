@@ -10,16 +10,16 @@
       </div>
 
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input placeholder="Email address" type="email" id="form1Example13" class="form-control form-control-lg" />
+            <input placeholder="Email address" formControlName="email" type="email" class="form-control form-control-lg"/>
             <!--<label class="form-label" for="form1Example13">Email address</label>-->
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-4">
-            <input type="password" placeholder="Password" id="form1Example23" class="form-control form-control-lg" />
+            <input type="password" formControlName="pw" placeholder="Password" class="form-control form-control-lg"/>
             <!--<label class="form-label" for="form1Example23">Password</label>-->
           </div>
 
@@ -39,7 +39,8 @@
           </div>
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" >Sign in</button>
+          </form>
 
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
@@ -54,7 +55,7 @@
               <i class="fab fa-amazon"></i> Login con Amazon</button>
           </div>
 
-        </form>
+
       </div>
     </div>
   </div>

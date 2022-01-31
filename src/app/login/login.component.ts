@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 import { OauthService } from '../services/oauth.service';
 import { TokenService } from '../services/token.service';
 import { TokenDto } from '../models/token-dto';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Loginreq} from '../models/loginreq';
+import {LoginService} from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -23,13 +26,20 @@ export class LoginComponent implements OnInit {
   socialUser: SocialUser;
   userLogged: SocialUser;
   isLogged: boolean;
+  form: FormGroup;
 
   constructor(
     private authService: SocialAuthService,
     private router: Router,
     private oauthService: OauthService,
-    private tokenService: TokenService
-  ) { }
+    private tokenService: TokenService,
+    private loginService: LoginService,
+    public fb: FormBuilder
+  ) {
+    this.form = fb.group({
+      email: ['', Validators.required],
+      pw : ['', Validators.required]});
+  }
 
   ngOnInit(): void {
     this.authService.authState.subscribe(
@@ -38,6 +48,24 @@ export class LoginComponent implements OnInit {
         this.isLogged = (this.userLogged != null && this.tokenService.getToken() != null);
       }
     );
+  }
+
+  onSubmit(): void {
+    if (this.form.valid) {
+      const loginReq = new Loginreq(this.form.value.email, this.form.value.pw);
+      console.log(loginReq);
+      this.loginService.login(loginReq).subscribe(
+        res => {
+          console.log(res);
+          this.socialUser = new SocialUser();
+          this.socialUser.email = 'pippo';
+          this.socialUser.name = 'pippo';
+          this.isLogged = true;
+          this.router.navigate(['/']);
+        }
+      );
+    }
+
   }
 
   signInWithGoogle(): void {
