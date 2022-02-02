@@ -12,9 +12,10 @@ import { Router } from '@angular/router';
 import { OauthService } from '../services/oauth.service';
 import { TokenService } from '../services/token.service';
 import { TokenDto } from '../models/token-dto';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Loginreq} from '../models/loginreq';
 import {LoginService} from '../services/login.service';
+import {Userbas} from '../models/Userbas';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   socialUser: SocialUser;
   userLogged: SocialUser;
+  userbasLogged: Userbas;
   isLogged: boolean;
   form: FormGroup;
 
@@ -38,32 +40,31 @@ export class LoginComponent implements OnInit {
   ) {
     this.form = fb.group({
       email: ['', Validators.required],
-      pw : ['', Validators.required]});
+      password : ['', Validators.required]});
   }
 
   ngOnInit(): void {
-    this.authService.authState.subscribe(
-      data => {
-        this.userLogged = data;
-        this.isLogged = (this.userLogged != null && this.tokenService.getToken() != null);
-      }
-    );
   }
 
   onSubmit(): void {
     if (this.form.valid) {
-      const loginReq = new Loginreq(this.form.value.email, this.form.value.pw);
-      console.log(loginReq);
+      const loginReq = new Loginreq(this.form.value.email, this.form.value.password);
       this.loginService.login(loginReq).subscribe(
         res => {
           console.log(res);
-          this.socialUser = new SocialUser();
-          this.socialUser.email = 'pippo';
-          this.socialUser.name = 'pippo';
+          this.userbasLogged = new Userbas();
+          this.userbasLogged.email = 'pippocandeggina';
+          sessionStorage.setItem('user', this.userbasLogged.email);
           this.isLogged = true;
           this.router.navigate(['/']);
+        },
+        err => {
+          console.log(err);
+          this.logOut();
         }
       );
+    } else {
+      // Print error
     }
 
   }
@@ -72,6 +73,9 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       data => {
         this.socialUser = data;
+        this.userbasLogged = new Userbas();
+        this.userbasLogged.email = this.socialUser.email;
+        sessionStorage.setItem('user', this.socialUser.email);
         const tokenGoogle = new TokenDto(this.socialUser.idToken);
         this.oauthService.google(tokenGoogle).subscribe(
           res => {
@@ -117,12 +121,9 @@ export class LoginComponent implements OnInit {
   }
 
   logOut(): void {
-    this.authService.signOut().then(
-      data => {
-        this.tokenService.logOut();
-        this.isLogged = false;
-      }
-    );
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+    this.isLogged = false;
   }
 
   signInWithAmazon(): void {

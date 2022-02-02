@@ -9,32 +9,27 @@ import { TokenService } from '../services/token.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
+  email: string;
   userLogged: SocialUser;
   isLogged: boolean;
 
   constructor(
     private authService: SocialAuthService,
     private router: Router,
-    private tokenService: TokenService
   ) { }
 
   ngOnInit(): void {
-    this.authService.authState.subscribe(
-      data => {
-        this.userLogged = data;
-        this.isLogged = (this.userLogged != null && this.tokenService.getToken() != null);
-      }
-    );
+    if (sessionStorage.getItem('user') != null) {
+      this.isLogged = true;
+      this.email = sessionStorage.getItem('user');
+    }
   }
 
   logOut(): void {
-    this.authService.signOut().then(
-      data => {
-        this.tokenService.logOut();
-        this.router.navigate(['/login']);
-      }
-    );
+    sessionStorage.clear();
+    this.router.navigate(['/']);
+    this.isLogged = false;
+    this.ngOnInit();
   }
 
 }

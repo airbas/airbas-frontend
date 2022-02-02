@@ -1,0 +1,77 @@
+<!-- Default form register -->
+<app-navbar></app-navbar>
+<form class="text-center border border-light p-5" style="margin-left: 25%; margin-right: 25%" [formGroup]="formSignIn" (ngSubmit)="onSubmit()">
+
+  <p class="h4 mb-4">Registrati</p>
+
+  <div class="form-row mb-4">
+    <div class="col">
+      <!-- First name -->
+      <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+    </div>
+    <div class="col">
+      <!-- Last name -->
+      <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+    </div>
+  </div>
+
+  <div class="form-row mb-4">
+    <div class="col">
+      <input class="form-control"[matDatepicker]="basicDatepicker" placeholder="Birthday">
+    </div>
+    <div class="col" style="margin-left: -60%">
+      <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #basicDatepicker></mat-datepicker>
+    </div>
+  </div>
+  <!-- E-mail -->
+  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+  <input type="text" class="form-control" placeholder="Credit Card" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+  <br>
+
+  <!-- Password -->
+  <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+  <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+    At least 8 characters and 1 digit
+  </small>
+
+  <!-- Phone number -->
+  <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+  <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+    Optional - for two-step authentication
+  </small>
+
+  <br>
+  <!-- Newsletter -->
+  <div class="row">
+    <div class="col-md-6 mx-auto d-flex justify-content-center">
+      <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
+    </div>
+  </div>
+
+  <!-- Sign up button -->
+  <button mdbBtn color="info" block="true" class="my-4" type="submit" style="margin: auto">Sign in</button>
+
+  <!-- Social register -->
+  <div class="divider d-flex align-items-center my-4">
+    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+  </div>
+
+  <div class="card-body">
+    <button class="btn btn-outline-danger btn-lg btn-block" >
+      <i class="fab fa-google"></i> Registrati con Google</button>
+    <button class="btn btn-outline-primary btn-lg btn-block" >
+      <i class="fab fa-facebook"></i> Registrati con Facebook</button>
+    <button class="btn btn-outline-primary btn-lg btn-block">
+      <i class="fab fa-amazon"></i> Registrati con Amazon</button>
+  </div>
+
+  <hr>
+
+  <!-- Terms of service -->
+  <p>By clicking
+    <em>Sign up</em> you agree to our
+    <a href="" target="_blank">terms of service</a></p>
+
+</form>
+<!-- Default form register -->

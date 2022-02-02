@@ -1,0 +1,47 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <ul class="navbar-nav ml-auto nav-flex-icons">
+    <li class="nav-item">
+      <a class="nav-link">
+        <i class="fas fa-plane-departure"></i>
+      </a>
+    </li>
+  </ul>
+  <!-- Collapsible content -->
+  <links>
+    <mdb-navbar-brand><a class="navbar-brand" href="#">AirBas</a></mdb-navbar-brand>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" routerLink="/signup" mdbWavesEffect>Registrati</a>
+      </li>
+    </ul>
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link">
+          <i class="fas fa-sign-in-alt" routerLink="/login"></i> Login
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <mdb-icon fab icon="amazon"></mdb-icon>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <mdb-icon fab icon="google-plus"></mdb-icon>
+        </a>
+      </li>
+    </ul>
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

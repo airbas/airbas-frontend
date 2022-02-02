@@ -19,7 +19,7 @@
           <ul class="navbar-nav ml-auto" *ngIf="isLogged">
               <li class="nav-item disabled">
                   <a class="nav-link" >
-                  {{userLogged.name}}
+                  {{email}}
                 </a>
                 </li>
           </ul>
@@ -37,7 +37,7 @@
             LogIn</button>
 
             <button *ngIf="isLogged"
-                    class="btn btn-outline-danger my-2 my-sm-0"
+                    class="btn btn-outline-danger"
                     type="submit" (click)="logOut()">
               <i class="fas fa-sign-out-alt fa-lg"></i> Logout</button>
 
