@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-xl-12 searchEngine">
+    <form class="bg-white shadow-5-strong p-5 searchEngine" [formGroup]="formSerchEngine">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <mat-form-field>
+              <mat-label>Città di partenza</mat-label>
+              <mat-select>
+                <mat-option value="one">Milano</mat-option>
+                <mat-option value="two">Torino</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field >
+            <mat-label>Città di arrivo</mat-label>
+            <mat-select>
+              <mat-option value="one">Milano</mat-option>
+              <mat-option value="two">Torino</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="col">
+            2 of 3 (wider)
+          </div>
+          <div class="col">
+            3 of 3
+          </div>
+          <div class="col">
+            4 of 4
+          </div>
+          <div class="col">
+            4 of 4
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <br>
+      </div>
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block">Search</button>
+    </form>
+  </div>
+</div>

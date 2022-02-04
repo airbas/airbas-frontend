@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SocialAuthService, SocialUser } from 'angularx-social-login';
 import { TokenService } from '../services/token.service';
 import {Userbas} from '../models/Userbas';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,17 +10,17 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  userLogged2: Userbas;
+
   email: string;
   userLogged: SocialUser;
   isLogged: boolean;
-  formSignIn: FormGroup;
+  formSerchEngine: FormGroup;
 
 
   constructor( public fb: FormBuilder) {
-    this.formSignIn = fb.group({
-      email: ['', Validators.required],
-      password : ['', Validators.required]
+    this.formSerchEngine = fb.group({
+      departureDate: ['', Validators.required],
+      departureCity : ['', Validators.required]
     });
   }
 

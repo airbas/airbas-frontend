@@ -20,13 +20,19 @@ import {
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
 
+import { MatInputModule } from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MenuComponent,
     HomeComponent,
     NavbarComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,
@@ -49,6 +56,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatDatepickerModule,
         MatNativeDateModule,
         MatGridListModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatDialogModule,
+        MatInputModule,
+        MatRadioModule,
+        FormsModule
     ],
   providers: [
     {
