@@ -2,19 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-search-engine',
-  templateUrl: './search-engine.component.html',
-  styleUrls: ['./search-engine.component.css']
+  selector: 'app-searchengine',
+  templateUrl: './searchengine.component.html',
+  styleUrls: ['./searchengine.component.css']
 })
-export class SearchEngineComponent implements OnInit {
-  formSerchEngine: FormGroup;
+export class SearchengineComponent implements OnInit {
+  formSearchEngine: FormGroup;
+
 
   constructor( public fb: FormBuilder) {
-    this.formSerchEngine = fb.group({
+    this.formSearchEngine = fb.group({
       departureDate: ['', Validators.required],
       departureCity : ['', Validators.required]
     });
   }
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+  }
 
 }
