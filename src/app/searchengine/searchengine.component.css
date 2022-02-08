@@ -1,8 +1,42 @@
-.searchEngine{
-  border-radius: 20px;
+div.tab{
+  overflow: hidden;
+}
+div.tab button {
+  background-color:  rgb(84, 112, 214);;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
 }
 
-.padding{
-  margin-right: 30px;
+div.tab button:hover {
+  background-color: #ddd;
+}
+
+div.tab button.selected {
+  background-color:  rgb(84, 145, 214);
+  color:white;
+}
+.flightForm{
+  margin-top: 2px
+}
+
+ul{
+  background-color:rgb(130, 179, 235);
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+ul li{
+  padding:10px;
+}
+li:hover{
+  background: lightgray;
+  color:rgb(84, 145, 214);
+  cursor: pointer;
 }
 

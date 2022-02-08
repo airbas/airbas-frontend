@@ -1,0 +1,37 @@
+{
+    "flights": [
+        {
+            "flightNo": "6E-202",
+            "source": "Torino",
+            "destination": "Londra",
+            "time": {
+                "departure": "2022-02-02 08:00:00",
+                "arrival": "2022-02-02 10:30:00"
+            },
+            "date": "2022-02-01 11:02:03",
+            "fare": "20.00"
+        },
+      {
+        "flightNo": "6E-202",
+        "source": "Torino",
+        "destination": "Parigi",
+        "time": {
+          "departure": "2022-02-02 08:00:00",
+          "arrival": "2022-02-02 10:30:00"
+        },
+        "date": "2022-02-01 11:02:03",
+        "fare": "15.00"
+      },
+      {
+        "flightNo": "6E-202",
+        "source": "Torino",
+        "destination": "Roma",
+        "time": {
+          "departure": "2022-02-02 08:00:00",
+          "arrival": "2022-02-02 10:30:00"
+        },
+        "date": "2022-02-01 11:02:03",
+        "fare": "5.00"
+      }
+    ]
+}
