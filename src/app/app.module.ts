@@ -32,6 +32,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -43,32 +44,33 @@ import {MatDividerModule} from '@angular/material/divider';
     FooterComponent,
     SearchengineComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SocialLoginModule,
-    HttpClientModule,
-    MDBBootstrapModule.forRoot(),
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatDatepickerModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatDialogModule,
-    MatInputModule,
-    MatRadioModule,
-    FormsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDividerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SocialLoginModule,
+        HttpClientModule,
+        MDBBootstrapModule.forRoot(),
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatDialogModule,
+        MatInputModule,
+        MatRadioModule,
+        FormsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDividerModule,
+        MatSliderModule
+    ],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',

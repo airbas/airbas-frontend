@@ -4,7 +4,7 @@ import { Flight } from '../models/flight';
 import { BookingDetails } from '../models/booking-details';
 import { map } from 'rxjs/operators';
 
-const apiUrl = 'assets/flight-data.json';
+const apiUrl = 'http://localhost:8080/api/flights/';
 @Injectable({
   providedIn: 'root'
 })
