@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {
   SocialAuthService,
@@ -8,11 +8,11 @@ import {
   AmazonLoginProvider
 } from 'angularx-social-login';
 
-import { Router } from '@angular/router';
-import { OauthService } from '../services/oauth.service';
-import { TokenService } from '../services/token.service';
-import { TokenDto } from '../models/token-dto';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {OauthService} from '../services/oauth.service';
+import {TokenService} from '../services/token.service';
+import {TokenDto} from '../models/token-dto';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Loginreq} from '../models/loginreq';
 import {LoginService} from '../services/login.service';
 import {Userbas} from '../models/Userbas';
@@ -23,7 +23,9 @@ import {Userbas} from '../models/Userbas';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  public loginValid = true;
+  public username = '';
+  public password = '';
   socialUser: SocialUser;
   userLogged: SocialUser;
   userbasLogged: Userbas;
@@ -40,32 +42,31 @@ export class LoginComponent implements OnInit {
   ) {
     this.form = fb.group({
       email: ['', Validators.required],
-      password : ['', Validators.required]});
+      password: ['', Validators.required]
+    });
   }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    if (this.form.valid) {
-      const loginReq = new Loginreq(this.form.value.email, this.form.value.password);
-      this.loginService.login(loginReq).subscribe(
-        res => {
-          console.log(res);
-          this.userbasLogged = new Userbas();
-          this.userbasLogged.email = 'pippocandeggina';
-          sessionStorage.setItem('user', this.userbasLogged.email);
-          this.isLogged = true;
-          this.router.navigate(['/']);
-        },
-        err => {
-          console.log(err);
-          this.logOut();
-        }
-      );
-    } else {
-      // Print error
-    }
+
+    const loginReq = new Loginreq(this.username, this.password);
+    this.loginService.login(loginReq).subscribe(
+      res => {
+        console.log(res);
+        this.userbasLogged = new Userbas();
+        this.userbasLogged.email = 'pippocandeggina';
+        sessionStorage.setItem('user', this.userbasLogged.email);
+        this.isLogged = true;
+        this.router.navigate(['/']);
+      },
+      err => {
+        console.log(err);
+        this.logOut();
+      }
+    );
+
 
   }
 

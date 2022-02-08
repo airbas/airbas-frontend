@@ -1,6 +1,15 @@
-navbarpadding{
-  padding-left: 30px;
+.span{
+  padding-right: 1rem;
 }
-.login{
-  font-style: normal;
+
+.loginbtn{
+  background-color: green;
+  color: white;
 }
+
+.signupbtn{
+  background-color: darkgreen;
+  color: white;
+  margin-left: 10px;
+}
+
