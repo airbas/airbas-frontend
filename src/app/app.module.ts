@@ -26,6 +26,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -37,26 +43,32 @@ import {MatRadioModule} from '@angular/material/radio';
     FooterComponent,
     SearchengineComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        SocialLoginModule,
-        HttpClientModule,
-        MDBBootstrapModule.forRoot(),
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        MatDatepickerModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatGridListModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatOptionModule,
-        MatDialogModule,
-        MatInputModule,
-        MatRadioModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SocialLoginModule,
+    HttpClientModule,
+    MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule,
+    MatInputModule,
+    MatRadioModule,
+    FormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule
+  ],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',

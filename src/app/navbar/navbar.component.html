@@ -1,43 +1,27 @@
-<!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center" class="navbar">
+  <div>
 
-  <!-- Navbar brand -->
-  <ul class="navbar-nav ml-auto nav-flex-icons">
-    <li class="nav-item">
-      <a class="nav-link">
-        <i class="fas fa-plane-departure"></i>
-      </a>
-    </li>
-  </ul>
-  <!-- Collapsible content -->
-  <links>
-    <mdb-navbar-brand><a class="navbar-brand" href="#">AirBas</a></mdb-navbar-brand>
+    <button mat-button routerLink="/home" style="font-size: 20px">
+      <i class="fas fa-plane-departure"></i> Airbas
+    </button>
+  </div>
+  <div class="spacer">
+    <span>
+      <button mat-button routerLink="/">Home</button>
+    </span>
+    <span>
+      <button mat-button routerLink="/">Offerte</button>
+    </span>
+    <span>
+      <button mat-button routerLink="/">About us</button>
+    </span>
 
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="/signup" mdbWavesEffect>Registrati</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="/signup" mdbWavesEffect>Offerte</a>
-      </li>
-    </ul>
-    <!-- Links -->
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item">
-        <a class="nav-link">
-          <i class="fas fa-sign-in-alt" routerLink="/login" mdbWavesEffect></i>
-          <i class="login" routerLink="/login" >Login </i>
+    <span>
+      <button mat-raised-button class="loginbtn" routerLink="/login">Login</button>
+    </span>
+    <span>
+      <button mat-raised-button class="signupbtn" routerLink="/signup">Registrati</button>
+    </span>
+  </div>
+</mat-toolbar>
 
-        </a>
-      </li>
-
-    </ul>
-  </links>
-  <!-- Collapsible content -->
-
-</mdb-navbar>
-<!--/.Navbar-->
