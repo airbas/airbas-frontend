@@ -33,6 +33,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSliderModule} from '@angular/material/slider';
+import { Searchengine2Component } from './searchengine2/searchengine2.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatSliderModule} from '@angular/material/slider';
     NavbarComponent,
     RegistrationComponent,
     FooterComponent,
-    SearchengineComponent
+    SearchengineComponent,
+    Searchengine2Component
   ],
     imports: [
         BrowserModule,

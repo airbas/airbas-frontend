@@ -1,3 +1,12 @@
+.searchEngine{
+  border-radius: 20px;
+}
+
+.padding{
+  margin-right: 30px;
+}
+
+
 div.tab{
   overflow: hidden;
 }
@@ -22,6 +31,7 @@ div.tab button.selected {
 .flightForm{
   margin-top: 2px
 }
+
 
 ul{
   background-color:rgb(130, 179, 235);
