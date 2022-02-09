@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+  <div class="col-xl-10 searchEngine">
+
+    <form class="bg-white shadow-5-strong p-5 searchEngine" [formGroup]="formSearchEngine">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col"></div>
+          <div class="col">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="selectTrip"
+                             [ngModelOptions]="{standalone: true}">
+              <mat-radio-button value="1">Andata e ritorno</mat-radio-button>
+              <mat-radio-button value="2">Solo andata</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="col"> {{selectTrip}}</div>
+        </div>
+
+        <div class="row" style="margin-top: 15px">
+
+          <div class="col aligns">
+            <input id="source" required type="text" class="form-control" placeholder="Citta di partenza" name="source">
+          </div>
+
+          <div class="col aligns">
+            <input id="dest" required type="text" class="form-control" placeholder="Citta di arrivo" name="source">
+          </div>
+
+          <div class="col">
+            <mat-form-field *ngIf="selectTrip=='1'">
+              <mat-label>Data di partenza</mat-label>
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="selectTrip=='2'">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date">
+                <input matEndDate placeholder="End date">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
+
+          <div class="col">
+            <mat-form-field>
+              <mat-label>Passeggeri</mat-label>
+              <input matInput placeholder="1" value="0" type="number">
+            </mat-form-field>
+          </div>
+
+          <div class="row">
+            <br>
+          </div>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
