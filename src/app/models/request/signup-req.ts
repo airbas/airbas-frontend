@@ -1,4 +1,4 @@
-export class UserPayload {
+export class SignupReq {
   email: string;
   password: string;
   firstname: string;

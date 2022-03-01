@@ -1,55 +1,71 @@
 <div class="row justify-content-center">
   <div class="col-xl-10 searchEngine">
-
-    <form class="bg-white shadow-5-strong p-5 searchEngine" [formGroup]="formSearchEngine">
+    <!-- #ID reactiveForm  [formGroup]="formSearchEngine" -->
+    <form class="bg-white shadow-5-strong p-5 searchEngine"
+      [formGroup]="formSearchEngine"
+      (ngSubmit)="onSubmit()" >
       <div class="container">
 
         <div class="row">
-
           <div class="col"></div>
-          <div class="col">
-            <mat-radio-group aria-label="Select an option" [(ngModel)]="selectTrip"
-                             [ngModelOptions]="{standalone: true}">
-              <mat-radio-button value="1">Andata e ritorno</mat-radio-button>
-              <mat-radio-button value="2">Solo andata</mat-radio-button>
-            </mat-radio-group>
-          </div>
-          <div class="col"> {{selectTrip}}</div>
+          <mat-radio-group [(ngModel)]="selectTrip"
+                           [ngModelOptions]="{standalone: true}">
+            <mat-radio-button value="FULL_TRIP"
+                              ng-style="{'display':'inline'}">Full trip</mat-radio-button>
+
+            <mat-radio-button value="ONE_WAY"
+                              ng-style="{'display':'inline'}"
+                              style="margin-left: 20px">One way</mat-radio-button>
+          </mat-radio-group>
+          <div class="col"></div>
+
         </div>
 
         <div class="row" style="margin-top: 15px">
-
-          <div class="col aligns">
-            <input id="source" required type="text" class="form-control" placeholder="Citta di partenza" name="source">
-          </div>
-
-          <div class="col aligns">
-            <input id="dest" required type="text" class="form-control" placeholder="Citta di arrivo" name="source">
+          <div class="col">
+            <mat-form-field>
+              <mat-label>Città di partenza</mat-label>
+              <input matInput
+                     formControlName="departureCity" >
+            </mat-form-field>
           </div>
 
           <div class="col">
-            <mat-form-field *ngIf="selectTrip=='1'">
+            <mat-form-field>
+              <mat-label>Città di arrivo</mat-label>
+              <input matInput
+                     formControlName="arrivalCity">
+            </mat-form-field>
+          </div>
+
+          <div class="col">
+            <mat-form-field *ngIf="selectTrip=='ONE_WAY'" >
               <mat-label>Data di partenza</mat-label>
-              <input matInput [matDatepicker]="picker">
+
+              <input matInput [matDatepicker]="picker" formControlName="onlyDepartureDate">
+
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-            <mat-form-field *ngIf="selectTrip=='2'">
+            <mat-form-field *ngIf="selectTrip=='FULL_TRIP'"
+                            formGroupName="dateGroup">
               <mat-label>Enter a date range</mat-label>
               <mat-date-range-input [rangePicker]="picker">
-                <input matStartDate placeholder="Start date">
-                <input matEndDate placeholder="End date">
+
+                <input matStartDate placeholder="Start date" formControlName="departureDate">
+                <input matEndDate placeholder="End date" formControlName="returnDate">
+
               </mat-date-range-input>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-date-range-picker #picker></mat-date-range-picker>
             </mat-form-field>
           </div>
 
-          <div class="col">
-            <mat-form-field>
+          <div>
+            <mat-form-field style="width: 50%; margin-left: 35px">
               <mat-label>Passeggeri</mat-label>
-              <input matInput placeholder="1" value="0" type="number">
+              <input matInput placeholder="1" value="0" type="number" formControlName="passengers">
             </mat-form-field>
           </div>
 
@@ -57,7 +73,7 @@
             <br>
           </div>
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-block">Search</button>
+          <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">Search</button>
         </div>
       </div>
     </form>

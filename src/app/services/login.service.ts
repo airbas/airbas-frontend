@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {TokenDto} from '../models/token-dto';
+import {TokenDto} from '../models/entity/token-dto';
 import {Observable} from 'rxjs';
-import {Loginreq} from '../models/loginreq';
+import {LoginReq} from '../models/request/login-req';
 
 const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'})};
 
@@ -14,7 +14,7 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public login(credentials: Loginreq): Observable<TokenDto> {
+  public login(credentials: LoginReq): Observable<TokenDto> {
     return this.httpClient.post<TokenDto>(this.authURL + 'login', credentials, cabecera);
   }
 }

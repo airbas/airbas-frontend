@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {SearchResponse} from '../models/search-result';
 import {BookingDetails} from '../models/booking-details';
 import {FlightSearchService} from '../services/flight-search.service';
-import {Flight} from '../models/flight';
+import {Flight} from '../models/entity/flight';
 import { map, mergeMap } from 'rxjs/operators';
 
 

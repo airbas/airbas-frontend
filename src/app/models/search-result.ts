@@ -1,4 +1,4 @@
-import { Flight } from './flight';
+import { Flight } from './entity/flight';
 import { BookingDetails } from './booking-details';
 
 export interface SearchResponse {

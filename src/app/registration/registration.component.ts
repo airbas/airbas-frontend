@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {Loginreq} from '../models/loginreq';
-import {Userbas} from '../models/Userbas';
+import {LoginReq} from '../models/request/login-req';
+import {Userbas} from '../models/entity/Userbas';
 
 @Component({
   selector: 'app-registration',

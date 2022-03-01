@@ -9,7 +9,6 @@ import { RegistrationComponent } from './registration/registration.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchengineComponent } from './searchengine/searchengine.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider,  AmazonLoginProvider, } from 'angularx-social-login';
@@ -34,17 +33,18 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSliderModule} from '@angular/material/slider';
 import { Searchengine2Component } from './searchengine2/searchengine2.component';
+import { FlightlistComponent } from './flightlist/flightlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     NavbarComponent,
     RegistrationComponent,
     FooterComponent,
     SearchengineComponent,
-    Searchengine2Component
+    Searchengine2Component,
+    FlightlistComponent
   ],
     imports: [
         BrowserModule,
@@ -91,7 +91,7 @@ import { Searchengine2Component } from './searchengine2/searchengine2.component'
           {
             id: AmazonLoginProvider.PROVIDER_ID,
             provider: new AmazonLoginProvider('amzn1.application-oa2-client.b8ff11881c0d4b8d8ea5568e2a7cb0a5'),
-          },
+          }
         ],
       } as SocialAuthServiceConfig,
     }  ],

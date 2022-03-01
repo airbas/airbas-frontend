@@ -1,3 +1,16 @@
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div>
+  <mat-grid-list cols="1" rowHeight="1:0.4">
+    <mat-grid-tile>
+      <div class="homepage">
+        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+          <div class="container">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
 <app-footer></app-footer>

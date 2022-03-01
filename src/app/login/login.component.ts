@@ -11,11 +11,11 @@ import {
 import {Router} from '@angular/router';
 import {OauthService} from '../services/oauth.service';
 import {TokenService} from '../services/token.service';
-import {TokenDto} from '../models/token-dto';
+import {TokenDto} from '../models/entity/token-dto';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Loginreq} from '../models/loginreq';
+import {LoginReq} from '../models/request/login-req';
 import {LoginService} from '../services/login.service';
-import {Userbas} from '../models/Userbas';
+import {Userbas} from '../models/entity/Userbas';
 
 @Component({
   selector: 'app-login',
@@ -50,13 +50,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-
-    const loginReq = new Loginreq(this.username, this.password);
-    this.loginService.login(loginReq).subscribe(
+    const request = new LoginReq(this.username, this.password);
+    this.loginService.login(request).subscribe(
       res => {
         console.log(res);
         this.userbasLogged = new Userbas();
-        this.userbasLogged.email = 'pippocandeggina';
+        this.userbasLogged.email = 'testuser';
         sessionStorage.setItem('user', this.userbasLogged.email);
         this.isLogged = true;
         this.router.navigate(['/']);

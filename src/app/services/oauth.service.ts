@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TokenDto } from '../models/token-dto';
+import { TokenDto } from '../models/entity/token-dto';
 import { Observable } from 'rxjs';
 
 const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'})};

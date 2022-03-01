@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Flight } from '../models/flight';
+import { Flight } from '../models/entity/flight';
 import { BookingDetails } from '../models/booking-details';
 import { map } from 'rxjs/operators';
 
