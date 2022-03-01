@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FooterComponent } from './footer/footer.component';
-import { SearchengineComponent } from './searchengine/searchengine.component';
 import { LoginComponent } from './login/login.component';
 
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -32,7 +31,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSliderModule} from '@angular/material/slider';
-import { Searchengine2Component } from './searchengine2/searchengine2.component';
+import { SearchengineComponent } from './searchengine/searchengine.component';
 import { FlightlistComponent } from './flightlist/flightlist.component';
 
 @NgModule({
@@ -43,7 +42,6 @@ import { FlightlistComponent } from './flightlist/flightlist.component';
     RegistrationComponent,
     FooterComponent,
     SearchengineComponent,
-    Searchengine2Component,
     FlightlistComponent
   ],
     imports: [

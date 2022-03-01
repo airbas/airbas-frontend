@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FlightlistComponent } from './flightlist/flightlist.component';
-import { Searchengine2Component } from './searchengine2/searchengine2.component';
+import { SearchengineComponent } from './searchengine/searchengine.component';
 
 
 const routes: Routes = [
-  {path: '', component: Searchengine2Component},
-  {path: 'home', component: Searchengine2Component},
+  {path: '', component: SearchengineComponent},
+  {path: 'home', component: SearchengineComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: RegistrationComponent},
   {path: 'flights', component: FlightlistComponent}
