@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FooterComponent } from './footer/footer.component';
@@ -21,7 +20,6 @@ import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import {MatDialogModule} from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -33,6 +31,14 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatSliderModule} from '@angular/material/slider';
 import { SearchengineComponent } from './searchengine/searchengine.component';
 import { FlightlistComponent } from './flightlist/flightlist.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { MatStepperModule} from '@angular/material/stepper';
+import { ReservationComponent } from './reservation/reservation.component';
+import { FlightinfoComponent } from './flightinfomap/flightinfo.component';
+import { FlightinfoquoteComponent } from './flightinfoquote/flightinfoquote.component';
+import { PassengersComponent } from './passengers/passengers.component';
+import { AirplanemapComponent } from './airplanemap/airplanemap.component';
 
 @NgModule({
   declarations: [
@@ -42,35 +48,43 @@ import { FlightlistComponent } from './flightlist/flightlist.component';
     RegistrationComponent,
     FooterComponent,
     SearchengineComponent,
-    FlightlistComponent
+    FlightlistComponent,
+    ReservationComponent,
+    FlightinfoComponent,
+    FlightinfoquoteComponent,
+    PassengersComponent,
+    AirplanemapComponent,
+    AirplanemapComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        SocialLoginModule,
-        HttpClientModule,
-        MDBBootstrapModule.forRoot(),
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        MatDatepickerModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatGridListModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatOptionModule,
-        MatDialogModule,
-        MatInputModule,
-        MatRadioModule,
-        FormsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatMenuModule,
-        MatButtonModule,
-        MatCardModule,
-        MatDividerModule,
-        MatSliderModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SocialLoginModule,
+    HttpClientModule,
+    MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatInputModule,
+    MatRadioModule,
+    FormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatSliderModule,
+    MatExpansionModule,
+    ScrollingModule,
+    MatStepperModule
+  ],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',

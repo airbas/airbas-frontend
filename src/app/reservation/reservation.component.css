@@ -1,0 +1,13 @@
+
+input {
+  vertical-align: bottom;
+}
+
+span {
+  display: block;
+}
+
+label span:nth-child(2) {
+  opacity: 0.6;
+  font-size: 0.9em;
+}

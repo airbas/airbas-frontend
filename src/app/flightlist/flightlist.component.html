@@ -1,22 +1,66 @@
 <div>
-  <mat-grid-list cols="1" rowHeight="1:0.4">
+  <mat-grid-list cols="1" rowHeight="1:0.6">
     <mat-grid-tile>
-      <div class="page">
-        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
-          <div class="container">
+          <div class="my-container">
             <mat-card class="loginCard">
-              <mat-card-content>
-                  <h2>Voli disponibili</h2>
-                <button mat-raised-button color="primary" >Buy</button>
-              </mat-card-content>
+              <mat-horizontal-stepper style="border-radius: 20px">
+                <mat-step label="Scegli il tuo volo">
 
-              <mat-divider>OR</mat-divider>
+                  <mat-card-content>
+                    <h2 style="padding: 20px">Da {{ this.source}} a {{ this.destination}}</h2>
+                  </mat-card-content>
 
+                  <mat-accordion class="example-headers-align" *ngFor="let flight of listFlightTo,index as i;" multi>
+                      <app-flightinfoquote [flight]="flight"></app-flightinfoquote>
+                  </mat-accordion>
+
+                  <div>
+                    <mat-card-content>
+                      <h2 style="padding: 20px">Da {{ this.destination}} a {{ this.source}}</h2>
+                    </mat-card-content>
+
+                    <mat-accordion id="acc2" class="example-headers-align" *ngFor="let flight of listFlightFrom,index as j" multi>
+                      <app-flightinfoquote [flight]="flight"></app-flightinfoquote>
+                    </mat-accordion>
+                  </div>
+                  <div class="center">
+                    <button mat-button color="primary" matStepperNext class="next-bottom">Next</button>
+                  </div>
+                  <div class="left">
+                    <button mat-button color="primary" matStepperNext class="fa-warning">Rimuovi voli selezionati</button>
+                  </div>
+                </mat-step>
+
+                <mat-step label="Scegli il tuo posto">
+                  <div *ngFor="let flight of this.dataService.selectedFlight" >
+                    <app-flightinfo [flightt]="flight"></app-flightinfo>
+                  </div>
+                  <div class="center">
+                    <button mat-button color="primary" matStepperNext class="next-bottom">Next</button>
+                  </div>
+                </mat-step>
+
+                <mat-step label="Dati dei passeggeri">
+                  <div *ngFor="let in of passengers ;let i = index" >
+                    <h2 style="padding: 20px">Passeggero {{ i+1}} </h2>
+                    <app-passengers></app-passengers>
+                  </div>
+                  <div class="center">
+                    Costo totale
+                  </div>
+                  <div class="center">
+                    <button mat-button color="primary" matStepperNext class="next-bottom">Conferma prenotazione</button>
+                  </div>
+
+                </mat-step>
+
+
+
+              </mat-horizontal-stepper>
             </mat-card>
 
+
           </div>
-        </div>
-      </div>
     </mat-grid-tile>
 
   </mat-grid-list>

@@ -1,0 +1,32 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-description>
+      {{ flightt.depHours }} - {{ flightt.arrHours }}
+    </mat-panel-description>
+    <mat-panel-description>
+      AA11DD
+    </mat-panel-description>
+    <mat-panel-description>
+      Da &nbsp;<b> {{ flightt.departureAirport }} </b>
+    </mat-panel-description>
+
+    <mat-panel-description>
+      <img src="../../assets/arrow.png" class="arrow-style">
+    </mat-panel-description>
+
+    <mat-panel-description>
+      A&nbsp;<b>{{ flightt.departureAirport }}</b>
+    </mat-panel-description>
+
+    <mat-panel-description>
+      From {{ this.price | currency:'EUR'}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-panel-description>
+    <div style="margin-left: 200px">
+      <app-airplanemap></app-airplanemap>
+    </div>
+  </mat-panel-description>
+</mat-expansion-panel>
+
+

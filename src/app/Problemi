@@ -1,0 +1,6 @@
+
+Componenti
+- SearchEngine : validaiton sui campi solo dopo che l'utente ha cliccato
+- FlightList :
+    - Aggiustare i toggle che quando selezioni un volo si chiude il panel associato ( o tutti)
+    - Per cliccare Next ci deve essere almeno un volo selezionato

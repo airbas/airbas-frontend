@@ -1,0 +1,75 @@
+<div id="A-{{flight.id}}">
+  <mat-expansion-panel id="B-{{flight.id}}" [(expanded)]="panelOpenState">
+    <mat-expansion-panel-header>
+      <mat-panel-description>
+        {{ flight.depHours }} - {{ flight.arrHours }}
+      </mat-panel-description>
+      <mat-panel-description>
+        AA11DD
+      </mat-panel-description>
+      <mat-panel-description>
+        Da &nbsp;<b> {{ flight.departureAirport }} </b>
+      </mat-panel-description>
+
+      <mat-panel-description>
+        <img src="../../assets/arrow2.png" class="arrow-style">
+      </mat-panel-description>
+
+      <mat-panel-description>
+        A&nbsp;<b>{{ flight.departureAirport }}</b>
+      </mat-panel-description>
+
+      <mat-panel-description>
+        From {{ flight.price | currency:'EUR'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    Scegli la tua tariffa
+
+    <div style="margin-top: 15px">
+      <mat-panel-description>
+        <div>
+          <mat-radio-group>
+            <mat-radio-button value="1" class="test" [checked]="true">
+              <div>
+                <b>Base</b>
+                <ul>
+                  <li>Zaino consentito a bordo</li>
+                </ul>
+                <span class="quote-price">+{{ +0.00 | currency:'EUR'}}</span>
+              </div>
+            </mat-radio-button>
+            <mat-radio-button value="2" class="test">
+              <div>
+                <b>Advanced</b>
+                <ul>
+                  <li>Zaino consentito a bordo</li>
+                  <li>Bagaglio da stiva</li>
+                </ul>
+                <span class="quote-price">+{{ +30.99 | currency:'EUR'}}</span>
+              </div>
+            </mat-radio-button>
+            <mat-radio-button value="3" class="test">
+              <div>
+                <b>Premium</b>
+                <ul>
+                  <li>Zaino consentito a bordo</li>
+                  <li>Bagaglio da stiva</li>
+                  <li>Prima classe</li>
+                  <li>Cibo illimitato</li>
+                  <li>Bevande illimitate</li>
+                </ul>
+                <span class="quote-price">+{{ +60.99 | currency:'EUR'}}</span>
+              </div>
+            </mat-radio-button>
+          </mat-radio-group>
+          <div class="buyflight">
+            <span class="quote-price"> Totale: {{ this.price | currency:'EUR'}} </span>
+            <span>
+                                <button mat-raised-button class="buttonBuy" (click)="selectFlight(flight)">Seleziona volo</button>
+                                </span>
+          </div>
+        </div>
+      </mat-panel-description>
+    </div>
+  </mat-expansion-panel>
+</div>

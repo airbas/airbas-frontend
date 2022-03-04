@@ -10,3 +10,9 @@
   margin-top: 7px;
 }
 
+.mycontainer{
+  width: 100%;
+  padding-right: 5%;
+  padding-left: 5%;
+  margin: 8% auto 8%;
+}

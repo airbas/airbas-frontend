@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { FormControl, FormGroup} from '@angular/forms';
 import {SearchFlightReq} from '../models/request/search-flight-req';
 import { SearchFlightService} from '../services/search-flight.service';
 import {Router} from '@angular/router';
@@ -14,7 +14,7 @@ import {DataService} from '../services/data.service';
 
 export class SearchengineComponent implements OnInit {
   formSearchEngine: FormGroup;
-  selectTrip: string;
+  selectTrip = 'FULL_TRIP';
 
   constructor( private searchFlightService: SearchFlightService,
                private router: Router,
@@ -39,13 +39,16 @@ export class SearchengineComponent implements OnInit {
                                         this.formSearchEngine.get('arrivalCity').value,
                                         this.formSearchEngine.get('passengers').value
       );
+    this.dataService.destCity = this.formSearchEngine.get('arrivalCity').value;
+    this.dataService.sourceCity = this.formSearchEngine.get('departureCity').value;
+    this.dataService.passengerForFlight = this.formSearchEngine.get('passengers').value;
     if (this.selectTrip === 'ONE_WAY') {
       request.setDepartureDate(this.formSearchEngine.get('onlyDepartureDate').value.toISOString());
 
       this.searchFlightService.searchOneWay(request).subscribe(
         res => {
           // console.log(res);
-          this.dataService.serviceData = res;
+          this.dataService.oneWayData = res;
           this.router.navigate(['/flights'] );
         },
         err => {
@@ -55,12 +58,11 @@ export class SearchengineComponent implements OnInit {
     } else if (this.selectTrip === 'FULL_TRIP') {
       request.setDepartureDate(this.formSearchEngine.controls.dateGroup.value.departureDate.toISOString());
       request.setReturnDate(this.formSearchEngine.controls.dateGroup.value.returnDate.toISOString());
-      console.log(request);
 
       this.searchFlightService.searchFullTrip(request).subscribe(
         res => {
-          console.log(res);
-          this.router.navigate(['/']);
+          this.dataService.fullTripData = res;
+          this.router.navigate(['/flights']);
         },
         err => {
           console.log(err);

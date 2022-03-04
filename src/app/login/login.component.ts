@@ -49,14 +49,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   onSubmit(): void {
     const request = new LoginReq(this.username, this.password);
     this.loginService.login(request).subscribe(
       res => {
         console.log(res);
         this.userbasLogged = new Userbas();
-        this.userbasLogged.email = 'testuser';
-        sessionStorage.setItem('user', this.userbasLogged.email);
+        this.userbasLogged.email = this.username;
+        sessionStorage.setItem('user', this.username);
         this.isLogged = true;
         this.router.navigate(['/']);
       },
@@ -151,3 +152,4 @@ export class LoginComponent implements OnInit {
     );
   }
 }
+

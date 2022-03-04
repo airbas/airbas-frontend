@@ -1,37 +1,17 @@
-.my-container{
-  width: 100%;
-  max-width: 95%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-mat-radio-button{
-  vertical-align: text-top;
-  margin-right: 45px;
-}
-
-.quote-price{
-  margin-left: 45px;
-  font-size: 16pt;
-}
-
 .buttonBuy{
   background-color: aquamarine;
-  margin-top: 30px;
-  float: right;
+  margin-top: 20px;
 }
 
 .buyflight{
   float: right;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .loginCard{
   border-radius: 20px;
   padding: 20px 60px;
-  margin-top: -22% !important;
-  max-height: 500px !important;
 }
 
 .next-bottom{
@@ -74,6 +54,10 @@ mat-radio-button{
 .arrow-style{
   height: 15px;
   width: 140px;
+}
+
+mat-radio-button{
+  margin-right: 20px;
 }
 
 span {
