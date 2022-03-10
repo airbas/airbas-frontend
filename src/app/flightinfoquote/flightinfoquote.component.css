@@ -23,6 +23,13 @@ mat-radio-button{
   float: right;
 }
 
+.buttonRemove{
+  background-color: red;
+  margin-top: 15px;
+  float: right;
+  width: 125px;
+}
+
 .buyflight{
   float: right;
 }
@@ -72,8 +79,8 @@ mat-radio-button{
 }
 
 .arrow-style{
-  height: 15px;
-  width: 140px;
+  height: 23px;
+  width: 160px;
 }
 
 span {
@@ -84,3 +91,4 @@ label span:nth-child(2) {
   opacity: 0.6;
   font-size: 0.9em;
 }
+

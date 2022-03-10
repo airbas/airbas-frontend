@@ -15,7 +15,9 @@ import {TokenDto} from '../models/entity/token-dto';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoginReq} from '../models/request/login-req';
 import {LoginService} from '../services/login.service';
-import {Userbas} from '../models/entity/Userbas';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogloginComponent} from '../dialogerror/dialogerror.component';
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -23,30 +25,36 @@ import {Userbas} from '../models/entity/Userbas';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public loginValid = true;
   public username = '';
   public password = '';
   socialUser: SocialUser;
-  userLogged: SocialUser;
-  userbasLogged: Userbas;
-  isLogged: boolean;
   form: FormGroup;
 
   constructor(
+    // Service to send auth request to provider
     private authService: SocialAuthService,
-    private router: Router,
+    // Service to send auth request to server
     private oauthService: OauthService,
     private tokenService: TokenService,
+    // Service to base login
     private loginService: LoginService,
-    public fb: FormBuilder
+    private dataService: DataService,
+    private router: Router,
+    public fb: FormBuilder,
+    public dialog: MatDialog
   ) {
     this.form = fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
-
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    this.dialog.open(DialogloginComponent, {data : { type: 'Errore',
+                                                            error: 'Credenziali errate',
+                                                            message: 'Email o password non risultano corrette, verifica i dati inseriti'}});
   }
 
 
@@ -55,15 +63,13 @@ export class LoginComponent implements OnInit {
     this.loginService.login(request).subscribe(
       res => {
         console.log(res);
-        this.userbasLogged = new Userbas();
-        this.userbasLogged.email = this.username;
-        sessionStorage.setItem('user', this.username);
-        this.isLogged = true;
+        // tslint:disable-next-line:no-unused-expression
+        this.dataService.isAuth = true;
+        this.dataService.userLoggedName = this.username;
         this.router.navigate(['/']);
       },
       err => {
-        console.log(err);
-        this.logOut();
+        this.openDialog();
       }
     );
 
@@ -74,25 +80,22 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       data => {
         this.socialUser = data;
-        this.userbasLogged = new Userbas();
-        this.userbasLogged.email = this.socialUser.email;
-        sessionStorage.setItem('user', this.socialUser.email);
         const tokenGoogle = new TokenDto(this.socialUser.idToken);
         this.oauthService.google(tokenGoogle).subscribe(
           res => {
             this.tokenService.setToken(res.value);
-            this.isLogged = true;
+            this.dataService.isAuth = true;
+            this.dataService.userLoggedName = this.socialUser.email;
             this.router.navigate(['/']);
           },
           err => {
-            console.log(err);
-            this.logOut();
+            this.openDialog();
           }
         );
       }
     ).catch(
       err => {
-        console.log(err);
+        this.openDialog();
       }
     );
   }
@@ -105,7 +108,8 @@ export class LoginComponent implements OnInit {
         this.oauthService.facebook(tokenFace).subscribe(
           res => {
             this.tokenService.setToken(res.value);
-            this.isLogged = true;
+            this.dataService.isAuth = true;
+            this.dataService.userLoggedName = this.socialUser.email;
             this.router.navigate(['/']);
           },
           err => {
@@ -122,9 +126,9 @@ export class LoginComponent implements OnInit {
   }
 
   logOut(): void {
-    sessionStorage.clear();
-    this.router.navigate(['/login']);
-    this.isLogged = false;
+    this.router.navigate(['/']);
+    this.dataService.isAuth = false;
+    this.dataService.userLoggedName = '';
   }
 
   signInWithAmazon(): void {
@@ -136,7 +140,8 @@ export class LoginComponent implements OnInit {
         this.oauthService.amazon(tokenFace).subscribe(
           res => {
             this.tokenService.setToken(res.value);
-            this.isLogged = true;
+            this.dataService.isAuth = true;
+            this.dataService.userLoggedName = this.socialUser.email;
             this.router.navigate(['/']);
           },
           err => {
@@ -152,4 +157,3 @@ export class LoginComponent implements OnInit {
     );
   }
 }
-

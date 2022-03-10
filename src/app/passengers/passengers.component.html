@@ -1,27 +1,31 @@
 <div>
   <mat-form-field appearance="fill">
     <mat-label>Nome</mat-label>
-    <input matInput>
+    <input matInput [(ngModel)]="nome">
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Cognome</mat-label>
-    <input matInput>
+    <input matInput [(ngModel)]="cognome">
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Enter your email</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    <mat-label>Enter your phone</mat-label>
+    <input matInput placeholder="333-333-333" [formControl]="phone" required>
+    <mat-error *ngIf="phone.invalid">{{getErrorMessage()}}</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Data di nascita</mat-label>
 
-    <input matInput [matDatepicker]="picker">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date">
 
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+
+  <button mat-fab color="warn" [disabled]="clicked" (click)="confirmData()" aria-label="Example icon button with a home icon">
+    <mat-icon>done_outline</mat-icon>
+  </button>
 
 </div>

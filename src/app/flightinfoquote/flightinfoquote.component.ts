@@ -9,6 +9,7 @@ import {DataService} from '../services/data.service';
 })
 export class FlightinfoquoteComponent implements OnInit {
   @Input() flight: Flight;
+
   price: number;
   panelOpenState = false;
 
@@ -17,18 +18,26 @@ export class FlightinfoquoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  togglePanel() {
+    this.panelOpenState = this.panelOpenState ? false : true;
+  }
+
   selectFlight(p: Flight): void {
     const div = document.getElementById('A-' + p.id);
     const child = div.children[0] as HTMLElement;
     child.style.setProperty('background-color', '#CBEDE3');
     this.togglePanel();
     this.dataService.selectedFlight.push(p);
-    console.log(this.dataService.selectedFlight);
   }
 
-  togglePanel() {
-    this.panelOpenState = this.panelOpenState ? false : true;
+  removeFlight(flight: Flight) {
+    const div = document.getElementById('A-' + flight.id);
+    const child = div.children[0] as HTMLElement;
+    child.style.setProperty('background-color', 'white');
+    this.togglePanel();
+    this.dataService.selectedFlight = this.dataService.selectedFlight.filter(obj => obj !== flight);
   }
+
 
 }
 

@@ -64,6 +64,15 @@ span {
   display: block;
 }
 
+.confirm-place{
+  height: 35px;
+  margin-top: 10px;
+  /* float: right; */
+  margin-left: 55%;
+}
+
+
+
 label span:nth-child(2) {
   opacity: 0.6;
   font-size: 0.9em;

@@ -5,14 +5,14 @@
         {{ flight.depHours }} - {{ flight.arrHours }}
       </mat-panel-description>
       <mat-panel-description>
-        AA11DD
+        {{ flight.name }}
       </mat-panel-description>
       <mat-panel-description>
         Da &nbsp;<b> {{ flight.departureAirport }} </b>
       </mat-panel-description>
 
       <mat-panel-description>
-        <img src="../../assets/arrow2.png" class="arrow-style">
+        <img src="../../assets/arrow.png" class="arrow-style">
       </mat-panel-description>
 
       <mat-panel-description>
@@ -65,8 +65,11 @@
           <div class="buyflight">
             <span class="quote-price"> Totale: {{ this.price | currency:'EUR'}} </span>
             <span>
-                                <button mat-raised-button class="buttonBuy" (click)="selectFlight(flight)">Seleziona volo</button>
-                                </span>
+              <button mat-raised-button class="buttonBuy" (click)="selectFlight(flight)">Seleziona volo</button>
+            </span>
+            <span>
+              <button mat-raised-button class="buttonRemove" (click)="removeFlight(flight)" >Rimuovi volo</button>
+            </span>
           </div>
         </div>
       </mat-panel-description>

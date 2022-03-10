@@ -39,6 +39,9 @@ import { FlightinfoComponent } from './flightinfomap/flightinfo.component';
 import { FlightinfoquoteComponent } from './flightinfoquote/flightinfoquote.component';
 import { PassengersComponent } from './passengers/passengers.component';
 import { AirplanemapComponent } from './airplanemap/airplanemap.component';
+import { DialogloginComponent } from './dialogerror/dialogerror.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -54,8 +57,11 @@ import { AirplanemapComponent } from './airplanemap/airplanemap.component';
     FlightinfoquoteComponent,
     PassengersComponent,
     AirplanemapComponent,
-    AirplanemapComponent
+    AirplanemapComponent,
+    DialogloginComponent,
+    SuccessComponent
   ],
+  entryComponents: [DialogloginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -83,7 +89,8 @@ import { AirplanemapComponent } from './airplanemap/airplanemap.component';
     MatSliderModule,
     MatExpansionModule,
     ScrollingModule,
-    MatStepperModule
+    MatStepperModule,
+    MatDialogModule
   ],
   providers: [
     {

@@ -1,14 +1,18 @@
 export class Flight {
-  id: string;
-  name: string;
-  departureDate: string;
-  arrivalDate: string;
-  departureCity: string;
-  arrivalCity: string;
-  departureAirport: string;
-  arrivalAirport: string;
-  airPlaneName: string;
-  price: string;
-  depHours: string;
-  arrHours: string;
+  public id: string;
+  public name: string;
+  public departureDate: string;
+  public arrivalDate: string;
+  public departureCity: string;
+  public arrivalCity: string;
+  public departureAirport: string;
+  public arrivalAirport: string;
+  public airPlaneName: string;
+  public price: string;
+  //
+  public depHours: string;
+  public arrHours: string;
+  // public seat: string[];
+  public seat: string;
+
 }

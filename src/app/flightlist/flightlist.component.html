@@ -3,11 +3,11 @@
     <mat-grid-tile>
           <div class="my-container">
             <mat-card class="loginCard">
-              <mat-horizontal-stepper style="border-radius: 20px">
-                <mat-step label="Scegli il tuo volo">
+              <mat-horizontal-stepper style="border-radius: 20px" linear>
+                <mat-step label="Scegli il tuo volo" >
 
                   <mat-card-content>
-                    <h2 style="padding: 20px">Da {{ this.source}} a {{ this.destination}}</h2>
+                    <h2 style="padding: 20px; font-family: Roboto">Da {{ this.source}} a {{ this.destination}}</h2>
                   </mat-card-content>
 
                   <mat-accordion class="example-headers-align" *ngFor="let flight of listFlightTo,index as i;" multi>
@@ -24,38 +24,31 @@
                     </mat-accordion>
                   </div>
                   <div class="center">
-                    <button mat-button color="primary" matStepperNext class="next-bottom">Next</button>
-                  </div>
-                  <div class="left">
-                    <button mat-button color="primary" matStepperNext class="fa-warning">Rimuovi voli selezionati</button>
+                    <button mat-raised-button color="primary" class="next-bottom" (click)="firstStep()">Avanti</button>
                   </div>
                 </mat-step>
 
-                <mat-step label="Scegli il tuo posto">
-                  <div *ngFor="let flight of this.dataService.selectedFlight" >
+                <mat-step label="Scegli il tuo posto" >
+                  <div *ngFor="let flight of this.dataService.selectedFlight" style="margin-top: 20px">
                     <app-flightinfo [flightt]="flight"></app-flightinfo>
                   </div>
                   <div class="center">
-                    <button mat-button color="primary" matStepperNext class="next-bottom">Next</button>
+                    <button mat-raised-button color="primary" class="next-bottom" (click)="secondStep()">Avanti</button>
                   </div>
                 </mat-step>
 
-                <mat-step label="Dati dei passeggeri">
+                <mat-step label="Dati dei passeggeri" >
                   <div *ngFor="let in of passengers ;let i = index" >
                     <h2 style="padding: 20px">Passeggero {{ i+1}} </h2>
                     <app-passengers></app-passengers>
                   </div>
                   <div class="center">
-                    Costo totale
+                    <h3>Costo totale</h3>
                   </div>
                   <div class="center">
-                    <button mat-button color="primary" matStepperNext class="next-bottom">Conferma prenotazione</button>
+                    <button mat-button color="primary" class="next-bottom" (click)="thirdStep()">Conferma prenotazione</button>
                   </div>
-
                 </mat-step>
-
-
-
               </mat-horizontal-stepper>
             </mat-card>
 

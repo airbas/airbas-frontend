@@ -4,7 +4,7 @@
       {{ flightt.depHours }} - {{ flightt.arrHours }}
     </mat-panel-description>
     <mat-panel-description>
-      AA11DD
+      {{ flightt.name }}
     </mat-panel-description>
     <mat-panel-description>
       Da &nbsp;<b> {{ flightt.departureAirport }} </b>
@@ -23,9 +23,13 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
   <mat-panel-description>
-    <div style="margin-left: 200px">
-      <app-airplanemap></app-airplanemap>
-    </div>
+    <!-- <div *ngFor="let in of passengers ;let i = index" > -->
+    <mat-form-field appearance="fill">
+      <mat-label>Posto a sedere</mat-label>
+      <input matInput [(ngModel)]="seat">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="confirm-place" (click)="selectSeat(flightt)">Conferma </button>
+    <!--</div>-->
   </mat-panel-description>
 </mat-expansion-panel>
 

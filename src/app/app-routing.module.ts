@@ -4,7 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FlightlistComponent } from './flightlist/flightlist.component';
 import { SearchengineComponent } from './searchengine/searchengine.component';
-import {ReservationComponent} from './reservation/reservation.component';
+import {SuccessComponent} from './success/success.component';
 
 
 const routes: Routes = [
@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: RegistrationComponent},
   {path: 'flights', component: FlightlistComponent},
-  {path: 'res', component: ReservationComponent}
-  // , {path: '**', redirectTo: '', pathMatch: 'full'}
+  {path: 'success', component: SuccessComponent},
+  {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
