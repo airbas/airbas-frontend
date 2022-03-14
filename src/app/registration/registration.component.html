@@ -1,76 +1,73 @@
-<!-- Default form register -->
-<form class="text-center border border-light p-5" style="margin-left: 25%; margin-right: 25%" [formGroup]="formSignIn" (ngSubmit)="onSubmit()">
+<div>
+  <mat-grid-list cols="1" rowHeight="1:0.4">
+    <mat-grid-tile>
+      <div class="homepage">
+        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+          <div class="container">
+  <mat-card class="my-card">
+    <mat-card-content>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+        <h2>Registrati</h2>
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name" [ngModel]="firstname" name="first" required>
+          <mat-error>
+            Please provide a valid name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Second Name" [ngModel]="lastname" name="lastname" required>
+          <mat-error>
+            Please provide a valid second name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" [ngModel]="email" name="email" required>
+          <mat-error>
+            Please provide a valid email
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label> Data di Nascita</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [ngModel]="birthdate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" [ngModel]="password" name="password" required>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+      </form>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="!registerForm.form.valid">SignUp</button>
+    </mat-card-actions>
+    </mat-card-content>
 
-  <p class="h4 mb-4">Registrati</p>
-
-  <div class="form-row mb-4">
-    <div class="col">
-      <!-- First name -->
-      <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+    <mat-divider>OR</mat-divider>
+    <div>
+      <button class="btn btn-outline-danger btn-lg btn-block" (click)="signUpWithGoogle()">
+        <i class="fab fa-google"></i> Signup con Google</button>
+      <button class="btn btn-outline-primary btn-lg btn-block" (click)="signUpWithFB()">
+        <i class="fab fa-facebook"></i> Signup con Facebook</button>
+      <button class="btn btn-outline-primary btn-lg btn-block" (click)="signUpWithAmazon()">
+        <i class="fab fa-amazon"></i> Signup con Amazon</button>
     </div>
-    <div class="col">
-      <!-- Last name -->
-      <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
-    </div>
-  </div>
-
-  <div class="form-row mb-4">
-    <div class="col">
-      <input class="form-control"[matDatepicker]="basicDatepicker" placeholder="Birthday">
-    </div>
-    <div class="col" style="margin-left: -60%">
-      <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
-      <mat-datepicker #basicDatepicker></mat-datepicker>
-    </div>
-  </div>
-  <!-- E-mail -->
-  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-  <input type="text" class="form-control" placeholder="Credit Card" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-  <br>
-
-  <!-- Password -->
-  <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-  <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-    At least 8 characters and 1 digit
-  </small>
-
-  <!-- Phone number -->
-  <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-  <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-    Optional - for two-step authentication
-  </small>
-
-  <br>
-  <!-- Newsletter -->
-  <div class="row">
-    <div class="col-md-6 mx-auto d-flex justify-content-center">
-      <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
-    </div>
-  </div>
-
-  <!-- Sign up button -->
-  <button mdbBtn color="info" block="true" class="my-4" type="submit" style="margin: auto">Sign in</button>
-
-  <!-- Social register -->
-  <div class="divider d-flex align-items-center my-4">
-    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-  </div>
-
-  <div class="card-body">
-    <button class="btn btn-outline-danger btn-lg btn-block" >
-      <i class="fab fa-google"></i> Registrati con Google</button>
-    <button class="btn btn-outline-primary btn-lg btn-block" >
-      <i class="fab fa-facebook"></i> Registrati con Facebook</button>
-    <button class="btn btn-outline-primary btn-lg btn-block">
-      <i class="fab fa-amazon"></i> Registrati con Amazon</button>
-  </div>
-
-  <hr>
 
   <!-- Terms of service -->
   <p>By clicking
     <em>Sign up</em> you agree to our
     <a href="" target="_blank">terms of service</a></p>
 
-</form>
-<!-- Default form register -->
+  </mat-card>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

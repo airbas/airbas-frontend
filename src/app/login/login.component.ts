@@ -51,11 +51,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   openDialog() {
     this.dialog.open(DialogloginComponent, {data : { type: 'Errore',
                                                             error: 'Credenziali errate',
                                                             message: 'Email o password non risultano corrette, verifica i dati inseriti'}});
   }
+
+
 
 
   onSubmit(): void {
@@ -72,8 +75,6 @@ export class LoginComponent implements OnInit {
         this.openDialog();
       }
     );
-
-
   }
 
   signInWithGoogle(): void {

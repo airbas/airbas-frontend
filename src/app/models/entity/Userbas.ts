@@ -6,4 +6,5 @@ export class Userbas {
   secondname: string;
   credicard: string;
   telephone: string;
+  birthdate: string;
 }
