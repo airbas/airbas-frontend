@@ -30,6 +30,7 @@ export class RegistrationComponent implements OnInit {
   socialUser: SocialUser;
   // user = new Userbas();
   msg = '';
+  items = Array.from({length: 7}).map((_, i) => `Item #${i}`);
 
   constructor( public fb: FormBuilder,
                public  dialog: MatDialog,
