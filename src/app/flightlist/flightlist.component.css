@@ -12,6 +12,12 @@ mat-radio-button{
   margin-right: 45px;
 }
 
+.totbtn{
+  margin-left: 25px;
+  margin-top: 20px;
+}
+
+
 .quote-price{
   margin-left: 45px;
   font-size: 16pt;

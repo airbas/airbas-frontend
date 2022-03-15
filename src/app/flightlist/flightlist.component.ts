@@ -19,7 +19,7 @@ export class FlightlistComponent implements OnInit {
 
   source: string;
   destination: string;
-  price: number;
+  finalPrice = 0;
   listFlightTo: Flight[];
   listFlightFrom: Flight[];
   passengers: any[];
@@ -32,7 +32,6 @@ export class FlightlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.price = 120;
     this.source = this.dataService.sourceCity;
     this.destination = this.dataService.destCity;
     if (this.dataService.typeFlight === 'ONE WAY') {
@@ -99,6 +98,8 @@ export class FlightlistComponent implements OnInit {
     const flights = this.dataService.selectedFlight;
     let secondStepOK = true;
     for (const f of flights) {
+      console.log(this.finalPrice);
+      this.finalPrice += Number(f.price);
       if (f.seat == null) {
         secondStepOK = false;
       }

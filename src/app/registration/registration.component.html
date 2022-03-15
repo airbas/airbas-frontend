@@ -2,7 +2,7 @@
   <mat-grid-list cols="1" rowHeight="1:0.4">
     <mat-grid-tile>
         <cdk-virtual-scroll-viewport itemSize="100" class="homepage">
-        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+        <div class="mask d-flex align-items-center h-100" >
           <div class="container">
   <mat-card class="my-card">
     <mat-card-content>
@@ -44,7 +44,7 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Password" [ngModel]="password" name="password" required>
+          <input matInput placeholder="Password" type="password" [ngModel]="password" name="password" required>
           <mat-error>
             Please provide a valid password
           </mat-error>
@@ -64,12 +64,13 @@
 
     <mat-divider>OR</mat-divider>
     <div>
-      <button class="btn btn-outline-danger btn-lg btn-block" (click)="signUpWithGoogle()">
+      <br>
+      <button class="btn btn-outline-danger btn-lg btn-block mybtn" (click)="signUpWithGoogle()">
         <i class="fab fa-google"></i> Signup con Google</button>
-      <button class="btn btn-outline-primary btn-lg btn-block" (click)="signUpWithFB()">
+      <button class="btn btn-outline-primary btn-lg btn-block mybtn" (click)="signUpWithFB()">
         <i class="fab fa-facebook"></i> Signup con Facebook</button>
       <button class="btn btn-outline-primary btn-lg btn-block" (click)="signUpWithAmazon()">
-        <i class="fab fa-amazon"></i> Signup con Amazon</button>
+        <i class="fab fa-amazon mybtn"></i> Signup con Amazon</button>
     </div>
 
   <!-- Terms of service -->

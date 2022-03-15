@@ -10,12 +10,15 @@ import {DataService} from '../services/data.service';
 export class FlightinfoquoteComponent implements OnInit {
   @Input() flight: Flight;
 
-  price: number;
+  totPrice: number;
   panelOpenState = false;
+  selected: string;
 
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
+    this.totPrice = parseInt(this.flight.price, 10);
+    this.selected = '0';
   }
 
   togglePanel() {
@@ -27,7 +30,9 @@ export class FlightinfoquoteComponent implements OnInit {
     const child = div.children[0] as HTMLElement;
     child.style.setProperty('background-color', '#CBEDE3');
     this.togglePanel();
+    p.price = String(this.totPrice);
     this.dataService.selectedFlight.push(p);
+    console.log(this.dataService.selectedFlight);
   }
 
   removeFlight(flight: Flight) {
@@ -39,5 +44,19 @@ export class FlightinfoquoteComponent implements OnInit {
   }
 
 
+  onChange() {
+    console.log('CHANGE');
+    console.log(this.selected);
+    // tslint:disable-next-line:triple-equals
+    if (this.selected == '1') {
+      this.totPrice = parseInt(this.flight.price, 10) + Number(30.99);
+      // tslint:disable-next-line:triple-equals
+    } else if (this.selected == '2') {
+      this.totPrice = parseInt(this.flight.price, 10) + Number(80.99);
+      // tslint:disable-next-line:triple-equals
+    } else if (this.selected == '0') {
+      this.totPrice = parseInt(this.flight.price, 10);
+    }
+  }
 }
 

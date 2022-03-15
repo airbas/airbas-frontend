@@ -1,6 +1,6 @@
 mat-card {
-  max-width: 485px;
-  max-height: 650px;
+  max-width: 585px;
+  max-height: 750px;
   margin: 2em auto;
   text-align: center;
 }
@@ -13,7 +13,7 @@ mat-card {
 
 .my-card {
   border-radius: 20px;
-  padding: 20px;
+  padding: 40px;
 }
 
 mat-form-field {
@@ -41,4 +41,8 @@ h2 {
   margin-left: -8px;
   margin-right: -8px;
   padding: 0px 0;
+}
+
+.mybtn{
+  height: 40px !important;
 }
