@@ -7,14 +7,14 @@
                 <mat-step label="Scegli il tuo volo" >
 
                   <mat-card-content>
-                    <h2 style="padding: 20px; font-family: Roboto">Da {{ this.source}} a {{ this.destination}}</h2>
+                    <h2 style="padding: 20px">Da {{ this.source}} a {{ this.destination}}</h2>
                   </mat-card-content>
 
                   <mat-accordion class="example-headers-align" *ngFor="let flight of listFlightTo,index as i;" multi>
                       <app-flightinfoquote [flight]="flight"></app-flightinfoquote>
                   </mat-accordion>
 
-                  <div>
+                  <div  *ngIf="this.dataService.typeFlight=='FULL_TRIP'">
                     <mat-card-content>
                       <h2 style="padding: 20px">Da {{ this.destination}} a {{ this.source}}</h2>
                     </mat-card-content>
@@ -38,10 +38,28 @@
                 </mat-step>
 
                 <mat-step label="Dati dei passeggeri" >
+
+                  <div *ngIf="dataService.isAuth == false" >
+                    <h2 style="padding: 20px; margin-left: 5px">Dati di fatturazione </h2>
+                    <span style=" font-size: 18px;margin: 18px;">Dato che non hai effettuato il login ti chiediamo gentilmenete un indirizzo mail in cui poterti inviare i codici della prenotazione e i dati
+                    della carta su cui verrà addebitato il costo della prenotazione. Ti ricordiamo che puoi registrati in qualsiasi momento per tenere d'occhio o modificare
+                    le tue prenotazioni.</span>
+                    <mat-form-field appearance="fill" style="margin-top: 20px;margin-left: 15px;" [(ngModel)]="email">
+                      <mat-label>Email</mat-label>
+                      <input matInput >
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" style="margin-top: 20px;margin-left: 15px;">
+                      <mat-label>Enter your credit card</mat-label>
+                      <input matInput placeholder="XXXX-XXXX-XXXX-XXX"  required>
+                    </mat-form-field>
+                  </div>
+
                   <div *ngFor="let in of passengers ;let i = index" >
                     <h2 style="padding: 20px">Passeggero {{ i+1}} </h2>
                     <app-passengers></app-passengers>
                   </div>
+
                   <div class="center">
                     <h3 class="totbtn">Costo totale {{ finalPrice | currency:'EUR'}}</h3>
                   </div>

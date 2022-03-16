@@ -11,10 +11,16 @@ export class FlightinfoComponent implements OnInit {
   @Input() flightt: Flight;
   price: number;
   seat: any;
+  panelOpenState = false;
 
   constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
+  }
+
+
+  togglePanel() {
+    this.panelOpenState = this.panelOpenState ? false : true;
   }
 
   selectSeat(flightt: Flight) {
@@ -24,5 +30,6 @@ export class FlightinfoComponent implements OnInit {
         f.seat = this.seat;
       }
     }
+    this.togglePanel();
   }
 }

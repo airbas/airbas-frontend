@@ -82,12 +82,13 @@ export class SearchengineComponent implements OnInit {
       this.dataService.destCity = this.formSearchEngine.get('arrivalCity').value;
       this.dataService.sourceCity = this.formSearchEngine.get('departureCity').value;
       this.dataService.passengerForFlight = this.formSearchEngine.get('passengers').value;
-      if (this.selectTrip === 'ONE_WAY') {
+      this.dataService.typeFlight = this.selectTrip;
+      if (this.dataService.typeFlight === 'ONE_WAY') {
         request.setDepartureDate(this.formSearchEngine.get('onlyDepartureDate').value.toISOString());
 
         this.searchFlightService.searchOneWay(request).subscribe(
           res => {
-            // console.log(res);
+            console.log(res);
             this.dataService.oneWayData = res;
             this.router.navigate(['/flights'] );
           },
@@ -95,7 +96,7 @@ export class SearchengineComponent implements OnInit {
             console.log(err);
           }
         );
-      } else if (this.selectTrip === 'FULL_TRIP') {
+      } else if (this.dataService.typeFlight === 'FULL_TRIP') {
         request.setDepartureDate(this.formSearchEngine.controls.dateGroup.value.departureDate.toISOString());
         request.setReturnDate(this.formSearchEngine.controls.dateGroup.value.returnDate.toISOString());
 

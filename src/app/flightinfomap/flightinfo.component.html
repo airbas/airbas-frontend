@@ -1,4 +1,4 @@
-<mat-expansion-panel>
+<mat-expansion-panel [(expanded)]="panelOpenState">
   <mat-expansion-panel-header>
     <mat-panel-description>
       {{ flightt.depHours }} - {{ flightt.arrHours }}
@@ -22,7 +22,7 @@
       Prezzo: {{ flightt.price | currency:'EUR'}}
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <mat-panel-description>
+  <mat-panel-description >
     <!-- <div *ngFor="let in of passengers ;let i = index" > -->
     <mat-form-field appearance="fill">
       <mat-label>Posto a sedere</mat-label>

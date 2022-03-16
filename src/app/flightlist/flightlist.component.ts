@@ -4,9 +4,7 @@ import {Flight} from '../models/entity/flight';
 import {DialogloginComponent} from '../dialogerror/dialogerror.component';
 import {MatDialog} from '@angular/material/dialog';
 import {MatHorizontalStepper} from '@angular/material/stepper';
-import {Router} from '@angular/router';
 import {Reservation} from '../models/entity/reservation';
-import {LoginReq} from '../models/request/login-req';
 import {ReservationService} from '../services/reservation.service';
 
 @Component({
@@ -23,18 +21,19 @@ export class FlightlistComponent implements OnInit {
   listFlightTo: Flight[];
   listFlightFrom: Flight[];
   passengers: any[];
+  email = '';
 
 
   constructor(public dataService: DataService,
               public resService: ReservationService,
-              public dialog: MatDialog,
-              private router: Router) {
+              public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
     this.source = this.dataService.sourceCity;
     this.destination = this.dataService.destCity;
-    if (this.dataService.typeFlight === 'ONE WAY') {
+    console.log(this.dataService.typeFlight);
+    if (this.dataService.typeFlight === 'ONE_WAY') {
       this.listFlightTo = this.fillHour(this.dataService.oneWayData);
     } else {
       this.listFlightTo = this.fillHour(this.dataService.fullTripData[0]);
@@ -53,6 +52,16 @@ export class FlightlistComponent implements OnInit {
       listFlight[f].arrHours = isoDateArr.match(/\d\d:\d\d/)[0];
     }
     return listFlight;
+  }
+
+  openDialogStep(msg: string) {
+    this.dialog.open(DialogloginComponent, {
+      data: {
+        type: 'Attenzione',
+        error: 'Dati mancanti',
+        message: msg
+      }
+    });
   }
 
   openDialogStep1() {
@@ -88,7 +97,7 @@ export class FlightlistComponent implements OnInit {
   firstStep(): void {
     // tslint:disable-next-line:triple-equals
     if (this.dataService.selectedFlight.length == 0) {
-      this.openDialogStep1();
+      this.openDialogStep('Selezionare almeno un volo per proseguire');
     } else {
       this.stepper.next();
     }
@@ -108,7 +117,7 @@ export class FlightlistComponent implements OnInit {
       this.createReservation();
       this.stepper.next();
     } else {
-      this.openDialogStep2();
+      this.openDialogStep('Selezionare i posti dei voli selezionati');
     }
   }
 
@@ -145,6 +154,10 @@ export class FlightlistComponent implements OnInit {
 
   thirdStep() {
     let count = 0;
+    if (!this.dataService.isAuth && this.email === '') {
+      this.openDialogStep('Dato che non risulati autenticato l\'email è obbligatoria');
+      return;
+    }
     if (this.dataService.passengers.length > 0) {
       for (const p of this.dataService.passengers) {
         if (p.date !== '' && p.name !== '' && p.cognome !== '' && p.phone !== '') {
@@ -155,10 +168,12 @@ export class FlightlistComponent implements OnInit {
         this.sendReservations();
         // this.router.navigate(['/success']);
       } else {
-        this.openDialogStep3();
+        this.openDialogStep('Compilare i dati relativi ai passeggeri o conferma i dati per ogni passeggero');
+        return;
       }
     } else {
-      this.openDialogStep3();
+      this.openDialogStep('Compilare i dati relativi ai passeggeri o conferma i dati per ogni passeggero');
+      return;
     }
   }
 
