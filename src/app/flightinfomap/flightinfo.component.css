@@ -38,7 +38,7 @@
   padding-bottom: 20px;
 }
 
-.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align
 .example-headers-align .mat-expansion-panel-header-description {
   flex-basis: 0;
 }
@@ -71,9 +71,16 @@ span {
   margin-left: 55%;
 }
 
+.my-panel{
+  /* display: flex; */
+   flex-grow: 1;
+  margin-right: 16px;
+  display: initial;
+}
 
 
 label span:nth-child(2) {
   opacity: 0.6;
   font-size: 0.9em;
 }
+
