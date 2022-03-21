@@ -43,7 +43,6 @@ import { DialogloginComponent } from './dialogerror/dialogerror.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SuccessComponent } from './success/success.component';
 import { FlightoffersComponent } from './flightoffers/flightoffers.component';
-import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -62,9 +61,7 @@ import { MapComponent } from './map/map.component';
     AirplanemapComponent,
     DialogloginComponent,
     SuccessComponent,
-    FlightoffersComponent,
-    MapComponent,
-    MapComponent
+    FlightoffersComponent
   ],
   entryComponents: [DialogloginComponent],
   imports: [
