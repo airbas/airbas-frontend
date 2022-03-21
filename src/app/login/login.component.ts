@@ -58,15 +58,12 @@ export class LoginComponent implements OnInit {
                                                             message: 'Email o password non risultano corrette, verifica i dati inseriti'}});
   }
 
-
-
-
   onSubmit(): void {
     const request = new LoginReq(this.username, this.password);
     this.loginService.login(request).subscribe(
       res => {
         console.log(res);
-        // tslint:disable-next-line:no-unused-expression
+        this.tokenService.setToken(res.value);
         this.dataService.isAuth = true;
         this.dataService.userLoggedName = this.username;
         this.router.navigate(['/']);
@@ -81,6 +78,7 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       data => {
         this.socialUser = data;
+        console.log(this.socialUser);
         const tokenGoogle = new TokenDto(this.socialUser.idToken);
         this.oauthService.google(tokenGoogle).subscribe(
           res => {

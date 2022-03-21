@@ -64,36 +64,6 @@ export class FlightlistComponent implements OnInit {
     });
   }
 
-  openDialogStep1() {
-    this.dialog.open(DialogloginComponent, {
-      data: {
-        type: 'Attenzione',
-        error: 'Dati mancanti',
-        message: 'Selezionare almeno un volo per proseguire'
-      }
-    });
-  }
-
-  openDialogStep2() {
-    this.dialog.open(DialogloginComponent, {
-      data: {
-        type: 'Attenzione',
-        error: 'Dati mancanti',
-        message: 'Selezionare i posti dei voli selezionati'
-      }
-    });
-  }
-
-  openDialogStep3() {
-    this.dialog.open(DialogloginComponent, {
-      data: {
-        type: 'Attenzione',
-        error: 'Dati mancanti',
-        message: 'Compilare i dati relativi ai passeggeri o conferma i dati per ogni passeggero'
-      }
-    });
-  }
-
   firstStep(): void {
     // tslint:disable-next-line:triple-equals
     if (this.dataService.selectedFlight.length == 0) {
@@ -107,7 +77,6 @@ export class FlightlistComponent implements OnInit {
     const flights = this.dataService.selectedFlight;
     let secondStepOK = true;
     for (const f of flights) {
-      console.log(this.finalPrice);
       this.finalPrice += Number(f.price);
       if (f.seat == null) {
         secondStepOK = false;
@@ -147,7 +116,7 @@ export class FlightlistComponent implements OnInit {
       res.passangerName = this.dataService.passengers[0].name;
       res.passangerSurname = this.dataService.passengers[0].cognome;
       res.passangerPhone = this.dataService.passengers[0].phone;
-
+      res.passangerDate = this.dataService.passengers[0].date;
     }
   }
 

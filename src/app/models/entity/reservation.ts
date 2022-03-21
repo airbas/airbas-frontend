@@ -8,6 +8,6 @@ export class Reservation {
   usermail: string;
   passangerName: string;
   passangerSurname: string;
-  // passangerDate: string;
+  passangerDate: string;
   passangerPhone: string;
 }

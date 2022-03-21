@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {LoginReq} from '../models/request/login-req';
 import {Observable} from 'rxjs';
-import {TokenDto} from '../models/entity/token-dto';
 import {Reservation} from '../models/entity/reservation';
 
 const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'})};
@@ -11,7 +9,7 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
   providedIn: 'root'
 })
 export class ReservationService {
-  resURL = 'http://localhost:8084/reservation/';
+  resURL = 'http://localhost:8080/api/res/';
 
   constructor(private httpClient: HttpClient) { }
 

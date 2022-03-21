@@ -22,14 +22,15 @@
       Prezzo: {{ flightt.price | currency:'EUR'}}
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <mat-panel-description >
-    <!-- <div *ngFor="let in of passengers ;let i = index" > -->
+  <mat-panel-description>
+    <app-map></app-map>
+    <!--
     <mat-form-field appearance="fill">
       <mat-label>Posto a sedere</mat-label>
       <input matInput [(ngModel)]="seat">
     </mat-form-field>
     <button mat-raised-button color="primary" class="confirm-place" (click)="selectSeat(flightt)">Conferma </button>
-    <!--</div>-->
+    -->
   </mat-panel-description>
 </mat-expansion-panel>
 

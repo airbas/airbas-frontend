@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Flight} from '../models/entity/flight';
 import {DataService} from '../services/data.service';
+import {SearchFlightService} from '../services/search-flight.service';
+
 
 @Component({
   selector: 'app-flightinfo',
@@ -13,9 +15,11 @@ export class FlightinfoComponent implements OnInit {
   seat: any;
   panelOpenState = false;
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService,
+              public flightService: SearchFlightService) { }
 
   ngOnInit(): void {
+
   }
 
 

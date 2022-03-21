@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {Userbas} from '../models/entity/Userbas';
 import {DialogloginComponent} from '../dialogerror/dialogerror.component';
 import {MatDialog} from '@angular/material/dialog';
 import {AmazonLoginProvider, FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser} from 'angularx-social-login';
@@ -28,8 +26,6 @@ export class RegistrationComponent implements OnInit {
   public telephone = '';
   public creditcard = '';
   socialUser: SocialUser;
-  // user = new Userbas();
-  msg = '';
   items = Array.from({length: 7}).map((_, i) => `Item #${i}`);
 
   constructor( public fb: FormBuilder,
@@ -62,24 +58,24 @@ export class RegistrationComponent implements OnInit {
 
 
   onSubmit(): void {
-    const request = new SignupReq(this.firstname,
-      this.lastname,
-      this.email,
+    const request = new SignupReq(this.email,
       this.password,
+      this.firstname,
+      this.lastname,
       this.birthdate,
-      this.telephone,
-      this.creditcard);
+      this.creditcard,
+      this.telephone);
+
     this.service.signup(request).subscribe(
       res => {
         console.log(res);
-        this.msg = 'Registrazione avvenuta con successo !';
+        this.tokenService.setToken(res.value);
         this.dataService.isAuth = true;
        // this.dataService.userLoggedName = this.email
         this.router.navigate(['/']);
       },
       error => {
         console.log('Exception occured');
-        this.msg = error.error;
       }
     );
   }

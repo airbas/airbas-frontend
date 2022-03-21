@@ -41,12 +41,14 @@
 
                   <div *ngIf="dataService.isAuth == false" >
                     <h2 style="padding: 20px; margin-left: 5px">Dati di fatturazione </h2>
-                    <span style=" font-size: 18px;margin: 18px;">Dato che non hai effettuato il login ti chiediamo gentilmenete un indirizzo mail in cui poterti inviare i codici della prenotazione e i dati
-                    della carta su cui verrà addebitato il costo della prenotazione. Ti ricordiamo che puoi registrati in qualsiasi momento per tenere d'occhio o modificare
+                    <span style=" font-size: 16px;margin: 18px;">Dato che non hai effettuato il login ti chiediamo gentilmenete un indirizzo mail in cui poterti inviare i codici della prenotazione e i dati
+                    della carta su cui verrà addebitato il costo della prenotazione.
+                      <br>
+                      <br>Ti ricordiamo che puoi registrati in qualsiasi momento per tenere d'occhio o modificare
                     le tue prenotazioni.</span>
-                    <mat-form-field appearance="fill" style="margin-top: 20px;margin-left: 15px;" [(ngModel)]="email">
+                    <mat-form-field appearance="fill" style="margin-top: 20px;margin-left: 15px;" >
                       <mat-label>Email</mat-label>
-                      <input matInput >
+                      <input [(ngModel)]="email" matInput>
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" style="margin-top: 20px;margin-left: 15px;">
