@@ -34,7 +34,6 @@ import { FlightlistComponent } from './flightlist/flightlist.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { MatStepperModule} from '@angular/material/stepper';
-import { ReservationComponent } from './reservation/reservation.component';
 import { FlightinfoComponent } from './flightinfomap/flightinfo.component';
 import { FlightinfoquoteComponent } from './flightinfoquote/flightinfoquote.component';
 import { PassengersComponent } from './passengers/passengers.component';
@@ -53,7 +52,6 @@ import { FlightoffersComponent } from './flightoffers/flightoffers.component';
     FooterComponent,
     SearchengineComponent,
     FlightlistComponent,
-    ReservationComponent,
     FlightinfoComponent,
     FlightinfoquoteComponent,
     PassengersComponent,

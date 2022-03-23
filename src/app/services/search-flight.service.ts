@@ -12,12 +12,12 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
 })
 
 export class SearchFlightService {
-  flightsURL = 'http://localhost:8083/flights/';
+  flightsURL = 'http://localhost:8080/api/flights/';
 
   constructor(private httpClient: HttpClient) { }
 
   public searchOneWay(req: SearchFlightReq): Observable<Flight[]> {
-    return this.httpClient.post<Flight[]>(this.flightsURL + 'justGone', req, cabecera);
+    return this.httpClient.post<Flight[]>(this.flightsURL + 'oneway', req, cabecera);
   }
 
   public searchFullTrip(req: SearchFlightReq): Observable<Flight[][]> {

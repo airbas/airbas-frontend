@@ -12,7 +12,6 @@ export class Flight {
   //
   public depHours: string;
   public arrHours: string;
-  // public seat: string[];
-  public seat: string;
+  public seat: string[];
 
 }

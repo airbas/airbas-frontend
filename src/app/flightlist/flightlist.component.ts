@@ -75,9 +75,12 @@ export class FlightlistComponent implements OnInit {
 
   secondStep(): void {
     const flights = this.dataService.selectedFlight;
+    const seat = this.dataService.seatList;
+
     let secondStepOK = true;
     for (const f of flights) {
       this.finalPrice += Number(f.price);
+      console.log(f);
       if (f.seat == null) {
         secondStepOK = false;
       }
@@ -101,7 +104,8 @@ export class FlightlistComponent implements OnInit {
         reservation.flightName = flights[i].name;
         reservation.usermail = this.dataService.userLoggedName;
         reservation.airPlaneName = flights[i].airPlaneName;
-        reservation.seatCord = flights[i].seat;
+        reservation.seatCord = flights[i].seat[j];
+        // @TODO Fix this
         reservation.rate = 'BASE';
         reservations.push(reservation);
       }

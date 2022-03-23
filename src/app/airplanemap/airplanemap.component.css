@@ -214,3 +214,15 @@ button{
   animation-name: rubberBand;
 }
 
+.error{
+  text-align: center;
+  font-size: 19px;
+  color: red;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+
+.checkbtn{
+
+}

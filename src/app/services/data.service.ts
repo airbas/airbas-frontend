@@ -18,6 +18,8 @@ export class DataService {
   isAuth = false;
   passengers: Passenger[] = [];
   reservations: Reservation[] = [];
+  seatList: string[] = [];
+
 
 
 
