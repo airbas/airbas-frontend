@@ -13,11 +13,11 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
 })
 export class RegistrationService {
 
-  // signUpURL = 'http://localhost:8080/api/auth/';
+  signUpURL = 'http://localhost:8080/api/auth/signup';
 
   constructor(private http: HttpClient) {}
 
   public signup(user: SignupReq): Observable<TokenDto> {
-   return this.http.post<TokenDto>( 'http://localhost:8080/api/auth/signup', user, cabecera);
+   return this.http.post<TokenDto>( this.signUpURL, user, cabecera);
   }
 }

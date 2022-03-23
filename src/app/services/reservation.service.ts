@@ -9,7 +9,7 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
   providedIn: 'root'
 })
 export class ReservationService {
-  resURL = 'http://localhost:8083/api/res/';
+  resURL = 'http://localhost:8080/api/res/';
 
   constructor(private httpClient: HttpClient) { }
 

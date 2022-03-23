@@ -6,6 +6,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatHorizontalStepper} from '@angular/material/stepper';
 import {Reservation} from '../models/entity/reservation';
 import {ReservationService} from '../services/reservation.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-flightlist',
@@ -26,18 +27,27 @@ export class FlightlistComponent implements OnInit {
 
   constructor(public dataService: DataService,
               public resService: ReservationService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              public router: Router) {
   }
 
   ngOnInit(): void {
     this.source = this.dataService.sourceCity;
     this.destination = this.dataService.destCity;
-    console.log(this.dataService.typeFlight);
     if (this.dataService.typeFlight === 'ONE_WAY') {
-      this.listFlightTo = this.fillHour(this.dataService.oneWayData);
+      if (this.dataService.oneWayData !== undefined) {
+        this.listFlightTo = this.fillHour(this.dataService.oneWayData);
+      } else {
+        this.router.navigate(['/']);
+      }
+
     } else {
-      this.listFlightTo = this.fillHour(this.dataService.fullTripData[0]);
-      this.listFlightFrom = this.fillHour(this.dataService.fullTripData[1]);
+      if (this.dataService.fullTripData !== undefined) {
+        this.listFlightTo = this.fillHour(this.dataService.fullTripData[0]);
+        this.listFlightFrom = this.fillHour(this.dataService.fullTripData[1]);
+      } else {
+        this.router.navigate(['/']);
+      }
     }
     this.passengers = Array(this.dataService.passengerForFlight).fill(0).map((x, i) => i);
 
@@ -156,7 +166,7 @@ export class FlightlistComponent implements OnInit {
       res => {
         console.log(res);
         // tslint:disable-next-line:no-unused-expression
-        // this.router.navigate(['/success']);
+        this.router.navigate(['/success']);
       },
     );
   }

@@ -37,7 +37,6 @@ import { MatStepperModule} from '@angular/material/stepper';
 import { FlightinfoComponent } from './flightinfomap/flightinfo.component';
 import { FlightinfoquoteComponent } from './flightinfoquote/flightinfoquote.component';
 import { PassengersComponent } from './passengers/passengers.component';
-import { AirplanemapComponent } from './airplanemap/airplanemap.component';
 import { DialogloginComponent } from './dialogerror/dialogerror.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SuccessComponent } from './success/success.component';
@@ -55,8 +54,6 @@ import { FlightoffersComponent } from './flightoffers/flightoffers.component';
     FlightinfoComponent,
     FlightinfoquoteComponent,
     PassengersComponent,
-    AirplanemapComponent,
-    AirplanemapComponent,
     DialogloginComponent,
     SuccessComponent,
     FlightoffersComponent
