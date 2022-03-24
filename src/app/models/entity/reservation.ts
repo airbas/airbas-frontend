@@ -6,6 +6,11 @@ export class Reservation {
   rate: string;
   seatCord: string;
   usermail: string;
+
+  dapartureAirport: string;
+  arrivalAirport: string;
+  date: string;
+
   passangerName: string;
   passangerSurname: string;
   passangerDate: string;

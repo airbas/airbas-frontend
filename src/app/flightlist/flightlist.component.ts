@@ -90,7 +90,6 @@ export class FlightlistComponent implements OnInit {
     let secondStepOK = true;
     for (const f of flights) {
       this.finalPrice += Number(f.price);
-      console.log(f);
       if (f.seat == null) {
         secondStepOK = false;
       }
@@ -104,6 +103,8 @@ export class FlightlistComponent implements OnInit {
   }
 
   createReservation() {
+    console.log('Flights');
+    console.log(this.dataService.selectedFlight);
     const reservations: Reservation[] = [];
     const flights: Flight[] = this.dataService.selectedFlight;
     // tslint:disable-next-line:prefer-for-of
@@ -115,31 +116,60 @@ export class FlightlistComponent implements OnInit {
         reservation.usermail = this.dataService.userLoggedName;
         reservation.airPlaneName = flights[i].airPlaneName;
         reservation.seatCord = flights[i].seat[j];
-        // @TODO Fix this
-        reservation.rate = 'BASE';
+        reservation.dapartureAirport = flights[i].departureAirport;
+        reservation.arrivalAirport = flights[i].arrivalAirport;
+        reservation.date = flights[i].departureDate;
+        reservation.rate = flights[i].rate;
         reservations.push(reservation);
       }
-      this.dataService.reservations = reservations;
     }
+    this.dataService.reservations = reservations;
+    console.log('Reservation');
+    console.log(this.dataService.reservations);
   }
 
   updateReservation() {
-    for (const res of this.dataService.reservations) {
-      // fix get only the first passegner
-      // res.passangerDate = this.dataService.passengers[0].date;
-      res.passangerName = this.dataService.passengers[0].name;
-      res.passangerSurname = this.dataService.passengers[0].cognome;
-      res.passangerPhone = this.dataService.passengers[0].phone;
-      res.passangerDate = this.dataService.passengers[0].date;
+    // Setting mail
+    if (!this.dataService.isAuth) {
+      for (const res of this.dataService.reservations) {
+        res.usermail = this.email;
+      }
+    } else {
+      for (const res of this.dataService.reservations) {
+        res.usermail = this.dataService.userLoggedName;
+      }
+    }
+    // Setting passanger
+    let index;
+    for (const flight of this.dataService.selectedFlight) {
+      const name = flight.name;
+      const resFilter = this.dataService.reservations
+        .filter((r: Reservation) => r.flightName === name);
+
+      console.log('Passanger');
+      console.log(this.dataService.passengers);
+      console.log('Reservation');
+      console.log(resFilter);
+      index = 0;
+      for (const res of resFilter) {
+        res.passangerName = this.dataService.passengers[index].name;
+        res.passangerSurname = this.dataService.passengers[index].cognome;
+        res.passangerPhone = this.dataService.passengers[index].phone;
+        res.passangerDate = this.dataService.passengers[index].date;
+        index += 1;
+      }
+      index = 0;
     }
   }
 
 
   thirdStep() {
     let count = 0;
-    if (!this.dataService.isAuth && this.email === '') {
-      this.openDialogStep('Dato che non risulati autenticato l\'email è obbligatoria');
-      return;
+    if (!this.dataService.isAuth) {
+      if (this.email === '') {
+        this.openDialogStep('Dato che non risulati autenticato l\'email è obbligatoria');
+        return;
+      }
     }
     if (this.dataService.passengers.length > 0) {
       for (const p of this.dataService.passengers) {
@@ -149,7 +179,6 @@ export class FlightlistComponent implements OnInit {
       }
       if (count === this.dataService.passengerForFlight) {
         this.sendReservations();
-        // this.router.navigate(['/success']);
       } else {
         this.openDialogStep('Compilare i dati relativi ai passeggeri o conferma i dati per ogni passeggero');
         return;

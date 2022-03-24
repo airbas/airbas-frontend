@@ -10,11 +10,15 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
 })
 export class ReservationService {
   resURL = 'http://localhost:8080/api/res/';
+  tmpURL = 'http://localhost:8084/reservation/get/';
 
   constructor(private httpClient: HttpClient) { }
 
   public send(reservations: Reservation[]): Observable<Reservation[]> {
-    console.log('Reservation READY TO SEND', reservations);
     return this.httpClient.post<Reservation[]>(this.resURL + 'creates', reservations, cabecera);
+  }
+
+  public get(mail: string): Observable<Reservation[]> {
+    return this.httpClient.get<Reservation[]>(this.tmpURL + mail, cabecera);
   }
 }

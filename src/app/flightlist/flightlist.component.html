@@ -29,11 +29,16 @@
                 </mat-step>
 
                 <mat-step label="Scegli il tuo posto" >
-                  <div *ngFor="let flight of this.dataService.selectedFlight" style="margin-top: 20px">
-                    <app-flightinfo [flightt]="flight"></app-flightinfo>
-                  </div>
-                  <div class="center">
-                    <button mat-raised-button color="primary" class="next-bottom" (click)="secondStep()">Avanti</button>
+                  <div *ngIf="this.dataService.selectedFlight.length > 0">
+                    <div style="margin-top: 20px">
+                      <mat-accordion class="example-headers-align" *ngFor="let flight of dataService.selectedFlight,index as j" multi>
+                        <app-flightinfo [flight]="flight"></app-flightinfo>
+                      </mat-accordion>
+
+                    </div>
+                    <div class="center">
+                      <button mat-raised-button color="primary" class="next-bottom" (click)="secondStep()">Avanti</button>
+                    </div>
                   </div>
                 </mat-step>
 
@@ -71,10 +76,7 @@
                 </mat-step>
               </mat-horizontal-stepper>
             </mat-card>
-
-
           </div>
     </mat-grid-tile>
-
   </mat-grid-list>
 </div>

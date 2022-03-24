@@ -9,6 +9,8 @@ export class Flight {
   public arrivalAirport: string;
   public airPlaneName: string;
   public price: string;
+  public rate: string;
+
   //
   public depHours: string;
   public arrHours: string;

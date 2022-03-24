@@ -31,8 +31,8 @@ export class FlightinfoquoteComponent implements OnInit {
     child.style.setProperty('background-color', '#CBEDE3');
     this.togglePanel();
     p.price = String(this.totPrice);
+    p.rate = this.selected;
     this.dataService.selectedFlight.push(p);
-    console.log(this.dataService.selectedFlight);
   }
 
   removeFlight(flight: Flight) {
@@ -45,8 +45,6 @@ export class FlightinfoquoteComponent implements OnInit {
 
 
   onChange() {
-    console.log('CHANGE');
-    console.log(this.selected);
     // tslint:disable-next-line:triple-equals
     if (this.selected == '1') {
       this.totPrice = parseInt(this.flight.price, 10) + Number(30.99);

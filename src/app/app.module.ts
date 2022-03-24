@@ -41,6 +41,8 @@ import { DialogloginComponent } from './dialogerror/dialogerror.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SuccessComponent } from './success/success.component';
 import { FlightoffersComponent } from './flightoffers/flightoffers.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { FlightoffersComponent } from './flightoffers/flightoffers.component';
     PassengersComponent,
     DialogloginComponent,
     SuccessComponent,
-    FlightoffersComponent
+    FlightoffersComponent,
+    ProfileComponent,
+    ReservationComponent
   ],
   entryComponents: [DialogloginComponent],
   imports: [
