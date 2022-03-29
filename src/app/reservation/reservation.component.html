@@ -1,0 +1,35 @@
+<div id="A-{{reservation.flightName}}">
+  <mat-expansion-panel id="B-{{reservation.flightName}}" [(expanded)]="panelOpenState">
+
+    <mat-expansion-panel-header>
+      <mat-panel-description>
+        {{customDate}}
+      </mat-panel-description>
+
+      <mat-panel-description>
+        {{depHours}}
+      </mat-panel-description>
+
+      <mat-panel-description>
+        Cod Volo: {{ reservation.flightName }}
+      </mat-panel-description>
+      <mat-panel-description>
+        Da &nbsp;<b>  {{ reservation.dapartureAirport }} </b>
+      </mat-panel-description>
+
+      <mat-panel-description>
+        A &nbsp;<b>  {{ reservation.arrivalAirport }} </b>
+      </mat-panel-description>
+
+    </mat-expansion-panel-header>
+    <div style="margin-top: 15px">
+      <mat-panel-description>
+        <div>
+            <span>
+              <button mat-raised-button class="buttonRemove" (click)="removeReservation(reservation)">Elimina la tua prenotazione</button>
+            </span>
+        </div>
+      </mat-panel-description>
+    </div>
+  </mat-expansion-panel>
+</div>

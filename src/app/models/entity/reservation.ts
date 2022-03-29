@@ -13,6 +13,6 @@ export class Reservation {
 
   passangerName: string;
   passangerSurname: string;
-  passangerDate: string;
+  passengerDate: string;
   passangerPhone: string;
 }

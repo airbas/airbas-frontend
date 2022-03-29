@@ -1,0 +1,29 @@
+.searchEngine{
+  border-radius: 20px;
+}
+
+.padding{
+  margin-right: 30px;
+}
+
+.aligns{
+  margin-top: 7px;
+}
+
+.crow{
+  justify-content: space-around;
+}
+
+.mycontainer{
+  width: 100%;
+  height: 90%;
+
+  padding-right: 5%;
+  padding-left: 5%;
+  margin: 3% auto 6%;
+}
+
+#scroller {
+  overflow: auto;
+  height: 180px;
+}

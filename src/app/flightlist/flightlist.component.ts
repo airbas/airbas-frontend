@@ -148,18 +148,19 @@ export class FlightlistComponent implements OnInit {
 
       console.log('Passanger');
       console.log(this.dataService.passengers);
-      console.log('Reservation');
-      console.log(resFilter);
+
       index = 0;
       for (const res of resFilter) {
         res.passangerName = this.dataService.passengers[index].name;
         res.passangerSurname = this.dataService.passengers[index].cognome;
         res.passangerPhone = this.dataService.passengers[index].phone;
-        res.passangerDate = this.dataService.passengers[index].date;
+        res.passengerDate = this.dataService.passengers[index].date.toISOString();
         index += 1;
       }
       index = 0;
     }
+    console.log('Reservation');
+    console.log(this.dataService.reservations);
   }
 
 
@@ -173,12 +174,13 @@ export class FlightlistComponent implements OnInit {
     }
     if (this.dataService.passengers.length > 0) {
       for (const p of this.dataService.passengers) {
-        if (p.date !== '' && p.name !== '' && p.cognome !== '' && p.phone !== '') {
+        if (p.date !== null && p.name !== '' && p.cognome !== '' && p.phone !== '') {
           count += 1;
         }
       }
       if (count === this.dataService.passengerForFlight) {
         this.sendReservations();
+        return;
       } else {
         this.openDialogStep('Compilare i dati relativi ai passeggeri o conferma i dati per ogni passeggero');
         return;
@@ -193,7 +195,7 @@ export class FlightlistComponent implements OnInit {
     this.updateReservation();
     this.resService.send(this.dataService.reservations).subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         // tslint:disable-next-line:no-unused-expression
         this.router.navigate(['/success']);
       },

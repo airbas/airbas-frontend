@@ -14,7 +14,7 @@ export class PassengersComponent implements OnInit {
   phone = new FormControl('', [Validators.required]);
   nome = '';
   cognome = '';
-  date = '';
+  date;
   passengers: any[];
   clicked = false;
 

@@ -1,0 +1,37 @@
+<div>
+  <div class="row justify-content-center mycontainer" >
+    <div class="col-xl-10 searchEngine" >
+      <!-- #ID reactiveForm  [formGroup]="formSearchEngine" -->
+      <div class="bg-white shadow-5-strong p-5 searchEngine">
+        <div class="container">
+              <h2>Seziona riservata di {{name}} {{cognome}}</h2>
+          <br>
+          <h3>Dati personali</h3>
+
+          <div class="row crow">
+              <mat-form-field>
+                <input matInput placeholder="Email" [(ngModel)]="email" disabled>
+              </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Carta di credito" [(ngModel)]="creditcard" disabled>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Telefono" [(ngModel)]="name" disabled>
+            </mat-form-field>
+
+          </div>
+          <br>
+          <h3>Lista prenotazioni attive</h3>
+          <div id="scroller">
+            <mat-accordion class="example-headers-align" *ngFor="let res of reservations,index as i;" multi>
+              <app-reservation [reservation]="res"></app-reservation>
+            </mat-accordion>
+          </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

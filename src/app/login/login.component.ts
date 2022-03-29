@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setToken(res.value);
         this.dataService.isAuth = true;
         this.dataService.userLoggedName = this.username;
-        this.router.navigate(['/']);
+        this.router.navigate(['/profile']);
       },
       err => {
         this.openDialog();
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
             this.tokenService.setToken(res.value);
             this.dataService.isAuth = true;
             this.dataService.userLoggedName = this.socialUser.email;
-            this.router.navigate(['/']);
+            this.router.navigate(['/profile']);
           },
           err => {
             this.openDialog();
@@ -109,7 +109,7 @@ export class LoginComponent implements OnInit {
             this.tokenService.setToken(res.value);
             this.dataService.isAuth = true;
             this.dataService.userLoggedName = this.socialUser.email;
-            this.router.navigate(['/']);
+            this.router.navigate(['/profile']);
           },
           err => {
             console.log(err);
@@ -141,7 +141,7 @@ export class LoginComponent implements OnInit {
             this.tokenService.setToken(res.value);
             this.dataService.isAuth = true;
             this.dataService.userLoggedName = this.socialUser.email;
-            this.router.navigate(['/']);
+            this.router.navigate(['/profile']);
           },
           err => {
             console.log(err);
