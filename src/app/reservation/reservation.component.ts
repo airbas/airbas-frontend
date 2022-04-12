@@ -36,7 +36,6 @@ export class ReservationComponent implements OnInit {
     this.reservationService.delete(this.dataService.userLoggedName, r.name).subscribe(
       res => {
         console.log(res);
-        r.flightName
         //this.dataService.reservations = res;
       },
       err => {}
