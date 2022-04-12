@@ -36,6 +36,7 @@ export class RegistrationComponent implements OnInit {
                private dataService: DataService,
                private router: Router,
                private service: RegistrationService) {
+
     this.myGroup = fb.group({
       firstname : ['', Validators.required],
       lastname: ['', Validators.required],
@@ -70,6 +71,7 @@ export class RegistrationComponent implements OnInit {
       res => {
         console.log(res);
         this.tokenService.setToken(res.value);
+        this.dataService.userLoggedName = this.email;
         this.dataService.isAuth = true;
        // this.dataService.userLoggedName = this.email
         this.router.navigate(['/']);

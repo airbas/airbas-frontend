@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     const request = new LoginReq(this.username, this.password);
     this.loginService.login(request).subscribe(
       res => {
-        console.log(res);
+        console.log(res.value);
         this.tokenService.setToken(res.value);
         this.dataService.isAuth = true;
         this.dataService.userLoggedName = this.username;

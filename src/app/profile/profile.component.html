@@ -9,25 +9,38 @@
           <h3>Dati personali</h3>
 
           <div class="row crow">
-              <mat-form-field>
+              <mat-form-field style="    width: 206px;">
                 <input matInput placeholder="Email" [(ngModel)]="email" disabled>
               </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Carta di credito" [(ngModel)]="creditcard" disabled>
+              <input matInput placeholder="Carta di credito" [(ngModel)]="creditcard" [disabled]="editable">
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Telefono" [(ngModel)]="name" disabled>
+              <input matInput placeholder="Telefono" [(ngModel)]="telephone" [disabled]="editable">
             </mat-form-field>
+
+            <button mat-fab color="primary" (click)="confirmData()" aria-label="Example icon button with a home icon">
+              <mat-icon>done_outline</mat-icon>
+            </button>
+
+            <button mat-fab color="warn" (click)="activateEdit()" aria-label="Example icon button with a home icon">
+              <mat-icon>edit</mat-icon>
+            </button>
 
           </div>
           <br>
-          <h3>Lista prenotazioni attive</h3>
+          <h2>Lista prenotazioni attive</h2>
           <div id="scroller">
-            <mat-accordion class="example-headers-align" *ngFor="let res of reservations,index as i;" multi>
-              <app-reservation [reservation]="res"></app-reservation>
-            </mat-accordion>
+            <div  *ngIf="dataService.reservations !== undefined && dataService.reservations.length != 0">
+              <mat-accordion class="example-headers-align" *ngFor="let res of dataService.reservations,index as i;" multi>
+                <app-reservation [reservation]="res"></app-reservation>
+              </mat-accordion>
+            </div>
+            <span *ngIf="dataService.reservations !== undefined && dataService.reservations.length == 0">
+              <p style="text-align: center"> Non ci risultano prenotazioni attive</p>
+            </span>
           </div>
 
       </div>

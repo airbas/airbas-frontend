@@ -5,4 +5,6 @@ export class Profile {
   public creditcard: string;
   public email: string;
   public birthdate: string;
+  public telephone: string;
+
 }

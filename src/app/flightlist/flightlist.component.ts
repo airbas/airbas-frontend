@@ -103,8 +103,8 @@ export class FlightlistComponent implements OnInit {
   }
 
   createReservation() {
-    console.log('Flights');
-    console.log(this.dataService.selectedFlight);
+    // console.log('Flights');
+    // console.log(this.dataService.selectedFlight);
     const reservations: Reservation[] = [];
     const flights: Flight[] = this.dataService.selectedFlight;
     // tslint:disable-next-line:prefer-for-of
@@ -124,8 +124,8 @@ export class FlightlistComponent implements OnInit {
       }
     }
     this.dataService.reservations = reservations;
-    console.log('Reservation');
-    console.log(this.dataService.reservations);
+    // console.log('Reservation');
+    // console.log(this.dataService.reservations);
   }
 
   updateReservation() {
@@ -159,8 +159,6 @@ export class FlightlistComponent implements OnInit {
       }
       index = 0;
     }
-    console.log('Reservation');
-    console.log(this.dataService.reservations);
   }
 
 
@@ -197,6 +195,8 @@ export class FlightlistComponent implements OnInit {
       res => {
         // console.log(res);
         // tslint:disable-next-line:no-unused-expression
+        this.dataService.reservations = [];
+        this.dataService.selectedFlight = [];
         this.router.navigate(['/success']);
       },
     );

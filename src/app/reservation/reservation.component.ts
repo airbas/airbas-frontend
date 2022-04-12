@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Reservation} from '../models/entity/reservation';
+import {Passenger} from '../models/entity/passenger';
+import {ReservationService} from '../services/reservation.service';
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-reservation',
@@ -8,15 +11,21 @@ import {Reservation} from '../models/entity/reservation';
 })
 export class ReservationComponent implements OnInit {
   @Input() reservation: Reservation;
+  passengerName: string;
+  passengerSurname: string;
   customDate: string;
   depHours: string;
   panelOpenState = false;
 
-  constructor() { }
+  constructor(public reservationService: ReservationService,
+              public dataService: DataService) { }
 
   ngOnInit(): void {
     this.customDate = this.reservation.date.split('T')[0];
     this.depHours = this.reservation.date.match(/\d\d:\d\d/)[0];
+    const reservation = JSON.parse(JSON.stringify((this.reservation)));
+    this.passengerName = reservation.passenger['firstname'];
+    this.passengerSurname = reservation.passenger['secondname'];
   }
 
   togglePanel() {
@@ -24,7 +33,14 @@ export class ReservationComponent implements OnInit {
   }
 
   removeReservation(r: Reservation): void {
-    console.log(r);
+    this.reservationService.delete(this.dataService.userLoggedName, r.name).subscribe(
+      res => {
+        console.log(res);
+        r.flightName
+        //this.dataService.reservations = res;
+      },
+      err => {}
+    );
     this.togglePanel();
     // COde to remove reservation backend
   }

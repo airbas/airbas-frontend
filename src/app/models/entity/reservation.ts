@@ -1,6 +1,7 @@
 import {Passenger} from './passenger';
 
 export class Reservation {
+  name: string;
   flightName: string;
   airPlaneName: string;
   rate: string;

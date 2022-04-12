@@ -1,0 +1,25 @@
+.loginCard{
+  border-radius: 20px;
+  padding: 20px 60px;
+  margin-top: -27% !important;
+  height: 230px;
+}
+
+.text{
+  text-align: center;
+}
+
+
+.text-2{
+  text-align: center;
+  font-size: 18px;
+}
+
+.my-container{
+  width: 100%;
+  max-width: 70%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}

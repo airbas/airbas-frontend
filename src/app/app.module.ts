@@ -43,6 +43,7 @@ import { SuccessComponent } from './success/success.component';
 import { FlightoffersComponent } from './flightoffers/flightoffers.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ReservationComponent } from './reservation/reservation.component';
     SuccessComponent,
     FlightoffersComponent,
     ProfileComponent,
-    ReservationComponent
+    ReservationComponent,
+    ErrorComponent
   ],
   entryComponents: [DialogloginComponent],
   imports: [
