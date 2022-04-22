@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Reservation} from '../models/entity/reservation';
-import {Passenger} from '../models/entity/passenger';
 import {ReservationService} from '../services/reservation.service';
 import {DataService} from '../services/data.service';
 
@@ -33,15 +32,21 @@ export class ReservationComponent implements OnInit {
   }
 
   removeReservation(r: Reservation): void {
+    console.log('Before delete');
+    console.log(this.dataService.reservations);
+    const nameres = r.name;
     this.reservationService.delete(this.dataService.userLoggedName, r.name).subscribe(
       res => {
-        console.log(res);
-        //this.dataService.reservations = res;
+        console.log('After delete');
+        console.log(this.dataService.reservations);
+        console.log('Name res to delete ' + nameres);
+        console.log(document.getElementById(nameres));
+        const elem = document.getElementById(nameres);
+        elem.parentNode.removeChild(elem);
       },
       err => {}
     );
     this.togglePanel();
-    // COde to remove reservation backend
   }
 
 }

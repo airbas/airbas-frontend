@@ -7,10 +7,14 @@
          <h2 class="text">Prenotazione confermata</h2>
           <br>
           <br>
-          <span class="text-2">Per visualizzare l'elenco delle prenotazione attive accedi alla tua sezione personale,
+          <span *ngIf="this.dataService.isAuth" class="text-2">
+            Per visualizzare l'elenco delle prenotazione attive accedi alla tua sezione personale,
             tramite la barra in alto nella pagina, oppure cliccando <a routerLink='/profile' >qua</a>
           </span>
-
+          <span *ngIf="!this.dataService.isAuth" class="text-2">
+            Per visualizzare l'elenco delle prenotazione attive accedi alla tua sezione personale,
+            registrandoti al seguenti link <a routerLink='/signup' >qua</a>
+          </span>
         </mat-card>
 
       </div>

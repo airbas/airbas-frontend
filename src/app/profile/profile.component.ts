@@ -14,7 +14,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  reservations: Reservation[];
   name = '';
   cognome = '';
   creditcard = '';
@@ -76,7 +75,7 @@ export class ProfileComponent implements OnInit {
           this.email = res.email;
         },
         err => {
-          this.openDialogStep('E\' successo un\'imprevisto');
+          // this.openDialogStep('E\' successo un\'imprevisto');
         }
       );
       this.reservationService.get(mail).subscribe(

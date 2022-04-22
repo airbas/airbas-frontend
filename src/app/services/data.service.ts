@@ -21,8 +21,6 @@ export class DataService {
   seatList: string[] = [];
 
 
-
-
   constructor() { }
 }
 

@@ -35,7 +35,7 @@
           <div id="scroller">
             <div  *ngIf="dataService.reservations !== undefined && dataService.reservations.length != 0">
               <mat-accordion class="example-headers-align" *ngFor="let res of dataService.reservations,index as i;" multi>
-                <app-reservation [reservation]="res"></app-reservation>
+                <app-reservation [reservation]="res" id="{{res.name}}"></app-reservation>
               </mat-accordion>
             </div>
             <span *ngIf="dataService.reservations !== undefined && dataService.reservations.length == 0">
