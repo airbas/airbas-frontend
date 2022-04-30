@@ -12,7 +12,7 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
 })
 
 export class SearchFlightService {
-  flightsURL = 'http://localhost:8080/api/flights/';
+  flightsURL = 'http://localhost:80/api/flights/';
 
   constructor(private httpClient: HttpClient) { }
 

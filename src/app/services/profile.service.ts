@@ -11,7 +11,7 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
 })
 
 export class ProfileService {
-  baseURL = 'http://localhost:8080/api/profile/';
+  baseURL = 'http://localhost:80/api/profile/';
 
   constructor(private httpClient: HttpClient) { }
 

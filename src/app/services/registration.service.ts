@@ -13,7 +13,7 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
 })
 export class RegistrationService {
 
-  signUpURL = 'http://localhost:8080/api/auth/signup';
+  signUpURL = 'http://localhost:80/api/auth/signup';
 
   constructor(private http: HttpClient) {}
 

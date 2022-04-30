@@ -10,7 +10,7 @@ const cabecera = {headers: new HttpHeaders({'Content-Type' : 'application/json'}
   providedIn: 'root'
 })
 export class LoginService {
-  authURL = 'http://localhost:8080/api/auth/';
+  authURL = 'http://localhost:80/api/auth/';
 
   constructor(private httpClient: HttpClient) { }
 
