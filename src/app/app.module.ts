@@ -44,6 +44,7 @@ import { FlightoffersComponent } from './flightoffers/flightoffers.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ErrorComponent } from './error/error.component';
+import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ErrorComponent } from './error/error.component';
     FlightoffersComponent,
     ProfileComponent,
     ReservationComponent,
-    ErrorComponent
+    ErrorComponent,
+    ComingsoonComponent
   ],
   entryComponents: [DialogloginComponent],
   imports: [

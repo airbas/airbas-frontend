@@ -74,7 +74,7 @@ export class RegistrationComponent implements OnInit {
         this.dataService.userLoggedName = this.email;
         this.dataService.isAuth = true;
        // this.dataService.userLoggedName = this.email
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       },
       error => {
         console.log('Exception occured');
@@ -92,7 +92,7 @@ export class RegistrationComponent implements OnInit {
             this.tokenService.setToken(res.value);
             this.dataService.isAuth = true;
             this.dataService.userLoggedName = this.socialUser.email;
-            this.router.navigate(['/']);
+            this.router.navigate(['/home']);
           },
           err => {
             this.openDialog();
@@ -116,7 +116,7 @@ export class RegistrationComponent implements OnInit {
             this.tokenService.setToken(res.value);
             this.dataService.isAuth = true;
             this.dataService.userLoggedName = this.socialUser.email;
-            this.router.navigate(['/']);
+            this.router.navigate(['/home']);
           },
           err => {
             console.log(err);
@@ -142,7 +142,7 @@ export class RegistrationComponent implements OnInit {
             this.tokenService.setToken(res.value);
             this.dataService.isAuth = true;
             this.dataService.userLoggedName = this.socialUser.email;
-            this.router.navigate(['/']);
+            this.router.navigate(['/home']);
           },
           err => {
             console.log(err);

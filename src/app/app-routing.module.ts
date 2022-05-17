@@ -7,11 +7,13 @@ import { SearchengineComponent } from './searchengine/searchengine.component';
 import {SuccessComponent} from './success/success.component';
 import {ProfileComponent} from './profile/profile.component';
 import {ErrorComponent} from './error/error.component';
+import {ComingsoonComponent} from './comingsoon/comingsoon.component';
 
 
 const routes: Routes = [
   {path: '', component: SearchengineComponent},
   {path: 'home', component: SearchengineComponent},
+  {path: 'soon', component: ComingsoonComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: RegistrationComponent},
   {path: 'flights', component: FlightlistComponent},
